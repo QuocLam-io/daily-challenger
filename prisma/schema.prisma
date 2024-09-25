@@ -26,7 +26,7 @@ model User {
 
 model Challenge {
   id          String         @id @default(uuid())
-  title       String
+  challenge   String
   type        ChallengeType
   quantity    Int?
   progress    Int?
