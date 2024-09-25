@@ -2,12 +2,12 @@
 
 <style>
   summary {
-    background-color: grey;
+    color: grey;
   }
 </style>
 
 <details>
-  <summary >Description (Coming Soon)</summary>
+  <summary>Description (Coming Soon)</summary>
 
 This section will provide an in-depth description of the project, including key features, user flows, and other details. Stay tuned!
 
