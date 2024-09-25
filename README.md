@@ -1,11 +1,5 @@
 # Daily Challenge Social Accountability App
 
-<style>
-  summary {
-    color: grey;
-  }
-</style>
-
 <details>
   <summary>Description (Coming Soon)</summary>
 
