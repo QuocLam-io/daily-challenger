@@ -1,14 +1,11 @@
 # Daily Challenge Social Accountability App
 
-```bash
-
 <details>
-  <summary>Description (Coming Soon)</summary>
+  <summary style="color: grey;" >Description (Coming Soon)</summary>
 
 This section will provide an in-depth description of the project, including key features, user flows, and other details. Stay tuned!
 
 </details>
-```
 
 ## Tech Stack
 
