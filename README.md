@@ -1,8 +1,11 @@
 # Daily Challenge Social Accountability App
 
-## Description
+<details>
+  <summary>Description (Coming Soon)</summary>
 
-Under Construction
+This section will provide an in-depth description of the project, including key features, user flows, and other details. Stay tuned!
+
+</details>
 
 ## Tech Stack
 
@@ -32,3 +35,4 @@ To run this project locally, follow these steps:
 ```bash
 git clone https://github.com/your-username/challenge-tracker-app.git
 cd challenge-tracker-app
+```
