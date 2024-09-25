@@ -14,11 +14,41 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  clerkUserId String @unique
-  email String @unique
-  name String?
-  imageUrl String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(uuid())
+  clerkUserId String      @unique
+  email       String      @unique
+  name        String?
+  imageUrl    String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  challenges  Challenge[]
+}
+
+model Challenge {
+  id          String         @id @default(uuid())
+  title       String
+  type        ChallengeType
+  quantity    Int?
+  progress    Int?
+  completed   Boolean        @default(false)
+  completedAt DateTime?
+  description String?
+  deadline    DateTime?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  deletedAt   DateTime?
+  userId      String
+  user        User           @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
+  visibility  VisibilityEnum @default(PRIVATE)
+}
+
+enum ChallengeType {
+  NUMERICAL
+  BOOLEAN
+}
+
+enum VisibilityEnum {
+  PUBLIC
+  FRIENDS_ONLY
+  PRIVATE
 }
