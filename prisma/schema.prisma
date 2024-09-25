@@ -35,6 +35,7 @@ model Challenge {
   description String?
   deadline    DateTime?
   createdAt   DateTime       @default(now())
+  @@index([userId])
   updatedAt   DateTime       @updatedAt
   deletedAt   DateTime?
   userId      String
