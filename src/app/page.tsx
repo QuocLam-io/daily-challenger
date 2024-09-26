@@ -2,12 +2,14 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  const { userId } = auth();
+  //! ------------------ New Design will have public functions ----------------- /
+  // const { userId } = auth();
 
-  if (!userId) {
-    redirect("/sign-in");
-    return null; // Prevent further rendering
-  }
+  // if (!userId) {
+  //   redirect("/sign-in");
+  //   return null; // Prevent further rendering
+  // }
+  //! -------------------------------------------------------------------------- /
 
   return (
     <main>
