@@ -35,7 +35,8 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <main className="container">
-            {userId && <Navbar />}
+            {/* {userId && <Navbar />} */}
+            <Navbar />
             {children}
           </main>
         </body>
