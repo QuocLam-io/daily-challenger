@@ -1,5 +1,5 @@
 "use client"
-import { auth } from "@clerk/nextjs/server";
+// import { auth } from "@clerk/nextjs/server"; //!Will have you use client side function
 import { redirect } from "next/navigation";
 
 export default function Home() {
