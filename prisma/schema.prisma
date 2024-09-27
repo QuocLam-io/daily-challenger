@@ -37,6 +37,8 @@ model Challenge {
   userId      String
   user        User           @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
   visibility  VisibilityEnum @default(PRIVATE)
+
+  @@index([visibility])
 }
 
 enum ChallengeType {
