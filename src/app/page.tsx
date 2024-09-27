@@ -1,6 +1,6 @@
-"use client"
+"use client";
 // import { auth } from "@clerk/nextjs/server"; //!Will have you use client side function
-import { redirect } from "next/navigation";
+import Challenge from "@/components/Challenge.jsx";
 
 export default function Home() {
   //! ------------------ New Design will have public functions ----------------- /
@@ -15,6 +15,7 @@ export default function Home() {
   return (
     <main>
       <h1>Welcome to your Dashboard!</h1>
+      <Challenge />
     </main>
   );
 }
