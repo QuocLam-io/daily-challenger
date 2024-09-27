@@ -1,3 +1,13 @@
+/* ---------------------------- Types/Interfaces ---------------------------- */
+
+interface ChallengeFormProps {
+  closeChallengerHandler: () => void;
+}
+
+type FormData = z.infer<typeof formSchema>;
+
+/* ---------------------------- Imports ------------------------------------- */
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,7 +27,7 @@ import {
 
 /* ------------------------ Submit Challenge Handler ------------------------ */
 
-const submitChallengeHandler = (userInfo) => {
+const submitChallengeHandler = (userInfo: FormData) => {
   //TODO: Send to backend
 };
 
@@ -49,7 +59,7 @@ const formSchema = z.object({
 
 /* -------------------------------------------------------------------------- */
 
-export function ChallengeForm({ closeChallengerHandler }) {
+export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {

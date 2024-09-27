@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ChallengeForm } from "../forms/ChallengeForm";
+import { ChallengeForm } from "../forms/ChallengeForm.tsx";
 import { useRouter } from "next/navigation";
 
 export function ChallengeDialog({ open, setOpen }) {
