@@ -13,7 +13,10 @@ import { ChallengeForm } from "../forms/ChallengeForm.tsx";
 import { useRouter } from "next/navigation";
 import "./ChallengeDialog.scss";
 
-export function ChallengeDialog({ open, setOpen }) {
+export function ChallengeDialog({
+  challengeDialogOpen,
+  setChallengeDialogOpen,
+}) {
   const router = useRouter();
 
   const closeChallengerHandler = () => {
@@ -22,7 +25,7 @@ export function ChallengeDialog({ open, setOpen }) {
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={challengeDialogOpen} onOpenChange={setChallengeDialogOpen}>
       <DialogContent className="create-challenge__dialog">
         {/* <DialogHeader>
           <DialogTitle>Challenge Yourself!</DialogTitle>

@@ -5,11 +5,11 @@ import { useState } from "react";
 import { ChallengeDialog } from "./dialogs/ChallengeDialog";
 
 const Challenge = () => {
-  let [open, setOpen] = useState(false);
+  let [challengeDialogOpen, setChallengeDialogOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Challenge Yourself</Button>
-      <ChallengeDialog open={open} setOpen={setOpen} />
+      <Button onClick={() => setChallengeDialogOpen(true)}>Challenge Yourself</Button>
+      <ChallengeDialog challengeDialogOpen={challengeDialogOpen} setChallengeDialogOpen={setChallengeDialogOpen} />
     </>
   );
 };
