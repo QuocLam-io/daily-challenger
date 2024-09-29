@@ -18,6 +18,29 @@ model User {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   challenges  Challenge[]
+
+  // Relations for user connections
+  connectionsRequested UserConnection[] @relation("requester")
+  connectionsReceived  UserConnection[] @relation("receiver")
+}
+
+model UserConnection {
+  id          String           @id @default(uuid())
+  createdAt   DateTime         @default(now())
+  status      ConnectionStatus @default(PENDING)
+  requesterId String
+  requester   User             @relation("requester", fields: [requesterId], references: [id], onDelete: Cascade)
+  receiverId  String
+  receiver    User             @relation("receiver", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, receiverId])
+}
+
+enum ConnectionStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  BLOCKED
 }
 
 model Challenge {
@@ -31,13 +54,13 @@ model Challenge {
   description String?
   deadline    DateTime?
   createdAt   DateTime       @default(now())
-  @@index([userId])
   updatedAt   DateTime       @updatedAt
   deletedAt   DateTime?
   userId      String
   user        User           @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
   visibility  VisibilityEnum @default(PRIVATE)
 
+  @@index([userId])
   @@index([visibility])
 }
 
