@@ -1,0 +1,7 @@
+@use "../../variables" as *;
+
+.create-challenge__dialog {
+  display: flex;
+  flex-direction: column;
+  border: $border;
+}
