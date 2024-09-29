@@ -7,10 +7,15 @@ import { ChallengeDialog } from "./dialogs/ChallengeDialog";
 const Challenge = () => {
   let [challengeDialogOpen, setChallengeDialogOpen] = useState(false);
   return (
-    <>
-      <Button onClick={() => setChallengeDialogOpen(true)}>Challenge Yourself</Button>
-      <ChallengeDialog challengeDialogOpen={challengeDialogOpen} setChallengeDialogOpen={setChallengeDialogOpen} />
-    </>
+    <div>
+      <ChallengeDialog
+        challengeDialogOpen={challengeDialogOpen}
+        setChallengeDialogOpen={setChallengeDialogOpen}
+      />
+      <Button onClick={() => setChallengeDialogOpen(true)}>
+        Challenge Yourself
+      </Button>
+    </div>
   );
 };
 

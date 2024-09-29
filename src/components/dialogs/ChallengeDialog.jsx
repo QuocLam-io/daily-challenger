@@ -1,11 +1,7 @@
-import { Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -27,12 +23,12 @@ export function ChallengeDialog({
   return (
     <Dialog open={challengeDialogOpen} onOpenChange={setChallengeDialogOpen}>
       <DialogContent className="create-challenge__dialog">
-        {/* <DialogHeader>
+        <DialogHeader>
           <DialogTitle>Challenge Yourself!</DialogTitle>
           <DialogDescription>
             Anyone who has this link will be able to view this.
           </DialogDescription>
-        </DialogHeader> */}
+        </DialogHeader>
         <ChallengeForm closeChallengerHandler={closeChallengerHandler} />
       </DialogContent>
     </Dialog>

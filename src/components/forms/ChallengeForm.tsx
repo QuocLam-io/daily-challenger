@@ -8,12 +8,14 @@ type FormData = z.infer<typeof formSchema>;
 
 /* ---------------------------- Imports ------------------------------------- */
 
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ContactsDialog } from "@/components/dialogs/ContactsDialog";
 
 import {
   Form,
@@ -60,6 +62,8 @@ const formSchema = z.object({
 /* -------------------------------------------------------------------------- */
 
 export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
+  const [contactsDialogOpen, setContactsDialogOpen] = useState(false);
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -129,6 +133,13 @@ export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
           )}
         />
         <Button type="submit">Submit</Button>
+        <Button onClick={() => setContactsDialogOpen(true)}>
+          Contacts button
+        </Button>
+        <ContactsDialog
+          contactsDialogOpen={contactsDialogOpen}
+          setContactsDialogOpen={setContactsDialogOpen}
+        />
       </form>
     </Form>
   );
