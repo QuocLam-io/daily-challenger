@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
-import "./ContactsDialog.scss";
+import "./ContactsModal.scss";
 import Modal from "@/components/Modal.tsx";
 
-export function ContactsDialog({ contactsDialogOpen, setContactsDialogOpen }) {
+export function ContactsModal({ contactsModalOpen, setContactsModalOpen }) {
   const router = useRouter();
 
   const closeChallengerHandler = () => {
@@ -13,10 +13,10 @@ export function ContactsDialog({ contactsDialogOpen, setContactsDialogOpen }) {
   return (
     //
     <Modal
-      // isTransparent={challengeDialogTransparent}
-      open={contactsDialogOpen}
+      // isTransparent={challengeModalTransparent}
+      open={contactsModalOpen}
       close={() => {
-        setContactsDialogOpen(false);
+        setContactsModalOpen(false);
       }}
     >
       Blub

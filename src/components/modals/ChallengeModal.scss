@@ -1,8 +1,8 @@
 @use "../../variables" as *;
 
-.add-contacts__dialog {
+.create-challenge__modal {
   display: flex;
   flex-direction: column;
-  // height: 100svh;
+  height: 100svh;
   // border: $border;
 }

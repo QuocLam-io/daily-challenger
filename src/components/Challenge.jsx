@@ -2,17 +2,17 @@
 
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { ChallengeDialog } from "./dialogs/ChallengeDialog";
+import { ChallengeModal } from "./modals/ChallengeModal";
 
 const Challenge = () => {
-  let [challengeDialogOpen, setChallengeDialogOpen] = useState(false);
+  let [challengeModalOpen, setChallengeModalOpen] = useState(false);
   return (
     <div>
-      <ChallengeDialog
-        challengeDialogOpen={challengeDialogOpen}
-        setChallengeDialogOpen={setChallengeDialogOpen}
+      <ChallengeModal
+        challengeModalOpen={challengeModalOpen}
+        setChallengeModalOpen={setChallengeModalOpen}
       />
-      <Button onClick={() => setChallengeDialogOpen(true)}>
+      <Button onClick={() => setChallengeModalOpen(true)}>
         Challenge Yourself
       </Button>
     </div>

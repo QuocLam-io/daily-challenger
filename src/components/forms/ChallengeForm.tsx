@@ -5,7 +5,7 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ContactsDialog } from "@/components/dialogs/ContactsDialog";
+import { ContactsModal } from "@/components/modals/ContactsModal";
 
 import {
   Form,
@@ -60,7 +60,7 @@ const formSchema = z.object({
 /* -------------------------------------------------------------------------- */
 
 export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
-  const [contactsDialogOpen, setContactsDialogOpen] = useState(false);
+  const [contactsModalOpen, setContactsModalOpen] = useState(false);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -131,12 +131,12 @@ export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
           )}
         />
         <Button type="submit">Submit</Button>
-        <Button onClick={() => setContactsDialogOpen(true)}>
+        <Button onClick={() => setContactsModalOpen(true)}>
           Contacts button
         </Button>
-        <ContactsDialog
-          contactsDialogOpen={contactsDialogOpen}
-          setContactsDialogOpen={setContactsDialogOpen}
+        <ContactsModal
+          contactsModalOpen={contactsModalOpen}
+          setContactsModalOpen={setContactsModalOpen}
         />
       </form>
     </Form>
