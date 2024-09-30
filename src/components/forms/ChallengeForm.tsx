@@ -1,13 +1,3 @@
-/* ---------------------------- Types/Interfaces ---------------------------- */
-
-interface ChallengeFormProps {
-  closeChallengerHandler: () => void;
-}
-
-type FormData = z.infer<typeof formSchema>;
-
-/* ---------------------------- Imports ------------------------------------- */
-
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -26,6 +16,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
+/* ---------------------------- Types/Interfaces ---------------------------- */
+
+interface ChallengeFormProps {
+  closeChallengerHandler: () => void;
+}
+
+type FormData = z.infer<typeof formSchema>;
 
 /* ------------------------ Submit Challenge Handler ------------------------ */
 

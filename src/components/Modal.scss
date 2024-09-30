@@ -27,6 +27,9 @@
 
       .modal-close {
         position: absolute;
+        // Adjust the top and right values to move the close button
+        // top: -20px;
+        // right: -20px;
         top: 0px;
         right: 0px;
         background: none;

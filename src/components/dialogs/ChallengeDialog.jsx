@@ -17,18 +17,20 @@ export function ChallengeDialog({
   };
 
   return (
-    <Modal
-      isTransparent={challengeDialogTransparent}
-      open={challengeDialogOpen}
-      close={() => {
-        setChallengeDialogOpen(false);
-      }}
-    >
-      <ChallengeForm
+    <>
+      <Modal
+        isTransparent={challengeDialogTransparent}
         open={challengeDialogOpen}
-        onOpenChange={setChallengeDialogOpen}
-        closeChallengerHandler={closeChallengerHandler}
-      />
-    </Modal>
+        close={() => {
+          setChallengeDialogOpen(false);
+        }}
+      >
+        <ChallengeForm
+          open={challengeDialogOpen}
+          onOpenChange={setChallengeDialogOpen}
+          closeChallengerHandler={closeChallengerHandler}
+        />
+      </Modal>
+    </>
   );
 }
