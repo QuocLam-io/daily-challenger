@@ -1,14 +1,8 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { ChallengeForm } from "../forms/ChallengeForm.tsx";
 import { useRouter } from "next/navigation";
 import "./ChallengeDialog.scss";
 import { useDialogStylingStore } from "@/store/dialogStore.jsx";
+import Modal from "@/components/Modal.tsx";
 
 export function ChallengeDialog({
   challengeDialogOpen,
@@ -17,6 +11,12 @@ export function ChallengeDialog({
   const router = useRouter();
   const { challengeDialogTransparent, setChallengeDialogTransparent } =
     useDialogStylingStore();
+  console.log(
+    challengeDialogTransparent,
+    challengeDialogOpen,
+    setChallengeDialogOpen,
+    "ChallengeDialog"
+  );
 
   const closeChallengerHandler = () => {
     setChallengeDialogOpen(false);
@@ -24,17 +24,17 @@ export function ChallengeDialog({
   };
 
   return (
-    <Dialog open={challengeDialogOpen} onOpenChange={setChallengeDialogOpen}>
-      <DialogContent className={`create-challenge__dialog`}>
-        <DialogHeader>
-          <DialogTitle>Challenge Yourself!</DialogTitle>
-          <DialogDescription>
-            Anyone who has this link will be able to view this.
-          </DialogDescription>
-        </DialogHeader>
-        <ChallengeForm closeChallengerHandler={closeChallengerHandler} />
-      </DialogContent>
-      <button onClick={setChallengeDialogTransparent}>Button</button>
-    </Dialog>
+    <Modal
+      open={challengeDialogOpen}
+      close={() => {
+        setChallengeDialogOpen(false);
+      }}
+    >
+      <ChallengeForm
+        open={challengeDialogOpen}
+        onOpenChange={setChallengeDialogOpen}
+        closeChallengerHandler={closeChallengerHandler}
+      />
+    </Modal>
   );
 }
