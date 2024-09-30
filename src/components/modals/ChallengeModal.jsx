@@ -29,4 +29,3 @@ export function ChallengeModal({ challengeModalOpen, setChallengeModalOpen }) {
   );
 }
 
-// TODO: Figure out where to reset the visibleModal state in the modalStore

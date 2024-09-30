@@ -132,6 +132,7 @@ export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
         />
         <Button type="submit">Submit</Button>
         <Button
+          type="button"
           onClick={() => {
             setContactsModalOpen(true);
           }}
