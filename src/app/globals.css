@@ -126,3 +126,7 @@ article {
     @apply bg-background text-foreground;
   }
 }
+
+.dialog--transparent {
+  opacity: 0;
+}

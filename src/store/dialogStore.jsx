@@ -2,9 +2,13 @@ import { create } from "zustand";
 
 export const useDialogStylingStore = create((set) => ({
   challengeDialogTransparent: false,
-  setChallengeDialogTransparent: (value) =>
-    set({ challengeDialogTransparent: value }),
+  setChallengeDialogTransparent: () =>
+    set((state) => ({
+      challengeDialogTransparent: !state.challengeDialogTransparent,
+    })),
   contactsDialogTransparent: false,
-  setContactsDialogTransparent: (value) =>
-    set({ contactsDialogTransparent: value }),
+  setContactsDialogTransparent: () =>
+    set((state) => ({
+      contactsDialogTransparent: !state.contactsDialogTransparent,
+    })),
 }));

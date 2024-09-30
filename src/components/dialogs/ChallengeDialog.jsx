@@ -8,21 +8,24 @@ import {
 import { ChallengeForm } from "../forms/ChallengeForm.tsx";
 import { useRouter } from "next/navigation";
 import "./ChallengeDialog.scss";
+import { useDialogStylingStore } from "@/store/dialogStore.jsx";
 
 export function ChallengeDialog({
   challengeDialogOpen,
   setChallengeDialogOpen,
 }) {
   const router = useRouter();
+  const { challengeDialogTransparent, setChallengeDialogTransparent } =
+    useDialogStylingStore();
 
   const closeChallengerHandler = () => {
-    setOpen(false);
+    setChallengeDialogOpen(false);
     router.refresh();
   };
 
   return (
     <Dialog open={challengeDialogOpen} onOpenChange={setChallengeDialogOpen}>
-      <DialogContent className="create-challenge__dialog">
+      <DialogContent className={`create-challenge__dialog`}>
         <DialogHeader>
           <DialogTitle>Challenge Yourself!</DialogTitle>
           <DialogDescription>
@@ -31,6 +34,7 @@ export function ChallengeDialog({
         </DialogHeader>
         <ChallengeForm closeChallengerHandler={closeChallengerHandler} />
       </DialogContent>
+      <button onClick={setChallengeDialogTransparent}>Button</button>
     </Dialog>
   );
 }
