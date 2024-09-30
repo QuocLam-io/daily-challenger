@@ -13,7 +13,6 @@ export function ContactsModal({ contactsModalOpen, setContactsModalOpen }) {
   return (
     //
     <Modal
-      // isTransparent={challengeModalTransparent}
       open={contactsModalOpen}
       close={() => {
         setContactsModalOpen(false);

@@ -1,15 +1,10 @@
 import { ChallengeForm } from "../forms/ChallengeForm.tsx";
 import { useRouter } from "next/navigation";
 import "./ChallengeModal.scss";
-import { useModalStylingStore } from "@/store/modalStore.jsx";
 import Modal from "@/components/Modal.tsx";
 
-export function ChallengeModal({
-  challengeModalOpen,
-  setChallengeModalOpen,
-}) {
+export function ChallengeModal({ challengeModalOpen, setChallengeModalOpen }) {
   const router = useRouter();
-  const { challengeModalTransparent } = useModalStylingStore();
 
   const closeChallengerHandler = () => {
     setChallengeModalOpen(false);
@@ -19,7 +14,6 @@ export function ChallengeModal({
   return (
     <>
       <Modal
-        isTransparent={challengeModalTransparent}
         open={challengeModalOpen}
         close={() => {
           setChallengeModalOpen(false);
@@ -34,3 +28,5 @@ export function ChallengeModal({
     </>
   );
 }
+
+// TODO: Figure out where to reset the visibleModal state in the modalStore
