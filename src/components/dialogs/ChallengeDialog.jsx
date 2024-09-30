@@ -9,14 +9,7 @@ export function ChallengeDialog({
   setChallengeDialogOpen,
 }) {
   const router = useRouter();
-  const { challengeDialogTransparent, setChallengeDialogTransparent } =
-    useDialogStylingStore();
-  console.log(
-    challengeDialogTransparent,
-    challengeDialogOpen,
-    setChallengeDialogOpen,
-    "ChallengeDialog"
-  );
+  const { challengeDialogTransparent } = useDialogStylingStore();
 
   const closeChallengerHandler = () => {
     setChallengeDialogOpen(false);
@@ -25,6 +18,7 @@ export function ChallengeDialog({
 
   return (
     <Modal
+      isTransparent={challengeDialogTransparent}
       open={challengeDialogOpen}
       close={() => {
         setChallengeDialogOpen(false);

@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from "framer-motion";
 interface ModalProps {
   open: boolean;
   close: () => void;
+  isTransparent?: boolean;
   children: ReactNode;
 }
 
-const Modal = ({ open, close, children }: ModalProps) => {
+const Modal = ({ open, close, isTransparent, children }: ModalProps) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") close();
@@ -28,6 +29,7 @@ const Modal = ({ open, close, children }: ModalProps) => {
     <AnimatePresence>
       {open && (
         <motion.div
+        // TODO: Add isTransparent conditional
           className="modal"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
