@@ -3,7 +3,14 @@ import ReactDOM from "react-dom";
 import "./Modal.scss";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ open, close, children }) => {
+/* ---------------------------------- Types --------------------------------- */
+interface ModalProps {
+  open: boolean;
+  close: () => void;
+  children: ReactNode;
+}
+
+const Modal = ({ open, close, children }: ModalProps) => {
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") close();
