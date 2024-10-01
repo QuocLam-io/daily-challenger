@@ -1,4 +1,4 @@
-import { ChallengeForm } from "../forms/ChallengeForm.tsx";
+import { ChallengeForm } from "../forms/ChallengeForm.jsx";
 import { useRouter } from "next/navigation";
 import "./ChallengeModal.scss";
 import Modal from "@/components/Modal.tsx";
