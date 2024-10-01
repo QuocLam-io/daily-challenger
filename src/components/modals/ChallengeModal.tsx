@@ -13,6 +13,7 @@ export function ChallengeModal({ challengeModalOpen, setChallengeModalOpen }) {
 
   return (
     <>
+    {/* TODO: Return to dialog */}
       <Modal
         open={challengeModalOpen}
         close={() => {
