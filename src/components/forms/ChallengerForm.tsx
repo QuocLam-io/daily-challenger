@@ -19,17 +19,11 @@ import {
 
 /* ---------------------------- Types/Interfaces ---------------------------- */
 
-interface ChallengeFormProps {
+interface ChallengerFormProps {
   closeChallengerHandler: () => void;
 }
 
 type FormData = z.infer<typeof formSchema>;
-
-/* ------------------------ Submit Challenge Handler ------------------------ */
-
-const submitChallengeHandler = (userInfo: FormData) => {
-  //TODO: Send to backend
-};
 
 /* ----------------------------------- Zod ---------------------------------- */
 
@@ -56,10 +50,18 @@ const formSchema = z.object({
       message: "Your password is not valid",
     }),
 });
+/* ------------------------ Submit Challenge Handler ------------------------ */
 
-/* -------------------------------------------------------------------------- */
+const submitChallengeHandler = (userInfo: FormData) => {
+  //TODO: Send to backend
+  console.log(userInfo, "Submitted");
+};
 
-export function ChallengeForm({ closeChallengerHandler }: ChallengeFormProps) {
+//clg
+
+export function ChallengerForm({
+  closeChallengerHandler,
+}: ChallengerFormProps) {
   const [contactsModalOpen, setContactsModalOpen] = useState(false);
 
   const form = useForm({

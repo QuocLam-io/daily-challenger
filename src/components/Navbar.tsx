@@ -3,6 +3,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { checkUser } from "@/lib/checkUser";
 
 const Navbar = async () => {
+  // TODO: Make a scss partial for this component
   const user = await checkUser();
   
   return (
