@@ -1,13 +1,13 @@
 import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { checkUser } from "@/lib/checkUser";
+import styles from "./Navbar.module.scss";
 
 const Navbar = async () => {
-  // TODO: Make a scss partial for this component
   const user = await checkUser();
-  
+
   return (
-    <nav className="navbar">
+    <nav className={styles.navbar}>
       <div className="navbar-container">
         <h2>Daily Challenger</h2>
         <div className="">

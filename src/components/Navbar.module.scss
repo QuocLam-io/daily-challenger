@@ -1,0 +1,11 @@
+@use "@/_variables.scss" as *;
+
+.navbar {
+  width: 100%;
+  border: 2px solid teal;
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
