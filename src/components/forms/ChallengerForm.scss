@@ -1,0 +1,17 @@
+@use "@/styles/_variables.scss" as *;
+
+
+.challenger_container {
+  border: $violet;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .input-group {
+      border: $border;
+    }
+  }
+}
+
+
