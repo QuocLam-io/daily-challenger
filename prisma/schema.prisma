@@ -46,7 +46,7 @@ enum ConnectionStatus {
 model Challenge {
   id          String         @id @default(uuid())
   challenge   String
-  type        ChallengeType
+  type        ChallengeType? //Made optional for now
   quantity    Int?
   progress    Int?
   completed   Boolean        @default(false)

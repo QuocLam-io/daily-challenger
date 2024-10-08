@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
+import "./ChallengerForm.scss";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -7,50 +9,41 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ContactsModal } from "@/components/modals/ContactsModal";
 
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-
 /* ---------------------------- Types/Interfaces ---------------------------- */
 
 interface ChallengerFormProps {
   closeChallengerHandler: () => void;
 }
 
-type FormData = z.infer<typeof formSchema>;
+// type FormData = z.infer<typeof formSchema>;
 
-/* ----------------------------------- Zod ---------------------------------- */
+//! ----------------------------------- Zod ---------------------------------- */
 
-const passwordValidation = new RegExp(
-  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-);
+// const passwordValidation = new RegExp(
+//   /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+// );
 
-const formSchema = z.object({
-  name: z.string().min(3, {
-    message: "Name must be at least 3 characters.",
-  }),
-  email: z
-    .string()
-    .min(1, {
-      message: "You mus give an email address.",
-    })
-    .email("This is not a valid email."),
-  password: z
-    .string()
-    .min(1, {
-      message: "You must give a password",
-    })
-    .regex(passwordValidation, {
-      message: "Your password is not valid",
-    }),
-});
-/* ------------------------ Submit Challenge Handler ------------------------ */
+// const formSchema = z.object({
+//   name: z.string().min(3, {
+//     message: "Name must be at least 3 characters.",
+//   }),
+//   email: z
+//     .string()
+//     .min(1, {
+//       message: "You mus give an email address.",
+//     })
+//     .email("This is not a valid email."),
+//   password: z
+//     .string()
+//     .min(1, {
+//       message: "You must give a password",
+//     })
+//     .regex(passwordValidation, {
+//       message: "Your password is not valid",
+//     }),
+// });
+
+//! ------------------------ Submit Challenge Handler ------------------------ */
 
 const submitChallengeHandler = (userInfo: FormData) => {
   //TODO: Send to backend
@@ -63,89 +56,89 @@ export function ChallengerForm({
   closeChallengerHandler,
 }: ChallengerFormProps) {
   const [contactsModalOpen, setContactsModalOpen] = useState(false);
+  const [challenge, setChallenge] = useState<string>("");
+  const [type, setType] = useState<"NUMERICAL" | "BOOLEAN">("NUMERICAL");
+  const [quantity, setQuantity] = useState<number | undefined>(0);
+  const [description, setDescription] = useState<string>("");
+  const [deadline, setDeadline] = useState<string>("");
 
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-    },
-  });
+  // const form = useForm({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     name: "",
+  //     email: "",
+  //     password: "",
+  //   },
+  // });
 
-  async function onSubmit(values) {
-    console.log(values);
-    submitChallengeHandler(values);
+  const clientAction = async (formData: FormData) => {
+    console.log(formData.get("challenge"));
+    submitChallengeHandler(formData);
     closeChallengerHandler();
-  }
+  };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Your Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Specify a Name" {...field} />
-              </FormControl>
-              <FormDescription>Give Your Full Name</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Your Email</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="Specify an Email" {...field} />
-              </FormControl>
-              <FormDescription>Give a Valid Email Address</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input
-                  type="password"
-                  placeholder="Specify a Password"
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>
-                A password must be with Minimum 8 characters, at least one
-                uppercase letter, one lowercase letter, one number and one
-                special character.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-        <Button
-          type="button"
-          onClick={() => {
-            setContactsModalOpen(true);
-          }}
-        >
-          Contacts button
-        </Button>
-        <ContactsModal
-          contactsModalOpen={contactsModalOpen}
-          setContactsModalOpen={setContactsModalOpen}
-        />
+    <section className="challenger_container">
+      <form action={clientAction}>
+        <div className="input-group">
+          <label htmlFor="challenge">Challenge:</label>
+          <input
+            id="challenge"
+            name="challenge"
+            className="input"
+            type="text"
+            value={challenge}
+            onChange={(e) => setChallenge(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="quantity">Quantity:</label>
+          <input
+            id="quantity"
+            name="quantity"
+            className="input"
+            type="number"
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <label htmlFor="deadline">Deadline:</label>
+          <input
+            id="deadline"
+            name="deadline"
+            className="input"
+            type="date"
+            onChange={(e) => setDeadline(e.target.value)}
+          />
+        </div>
+        {/* <div className="input-group">
+          <label htmlFor="type">Type:</label>
+          <select
+            id="type"
+            name="type"
+            className="select"
+            onChange={(e) => setChallenge(e.target.value)}
+          >
+            <option value="NUMERICAL">Numerical</option>
+            <option value="BOOLEAN">Boolean</option>
+          </select>
+        </div> */}
+
+        {/* <div className="input-group">
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            className="textarea"
+            onChange={(e) => setChallenge(e.target.value)}
+          />
+        </div> */}
+
+        <button >Create Challenge</button>
       </form>
-    </Form>
+    </section>
   );
 }

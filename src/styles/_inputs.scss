@@ -2,4 +2,7 @@
 
 .input-group {
   border: $border;
+  input {
+    border: $border;
+  }
 }
