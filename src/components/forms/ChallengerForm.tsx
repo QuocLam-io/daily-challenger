@@ -5,9 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ContactsModal } from "@/components/modals/ContactsModal";
+import addChallenge from "@/app/actions/addChallenge";
 
 /* ---------------------------- Types/Interfaces ---------------------------- */
 
@@ -16,7 +15,6 @@ interface ChallengerFormProps {
 }
 
 // type FormData = z.infer<typeof formSchema>;
-
 //! ----------------------------------- Zod ---------------------------------- */
 
 // const passwordValidation = new RegExp(
@@ -72,8 +70,15 @@ export function ChallengerForm({
   // });
 
   const clientAction = async (formData: FormData) => {
-    console.log(formData.get("challenge"));
-    submitChallengeHandler(formData);
+    const { data, error } = await addChallenge(formData);
+
+    if (error) {
+      alert(error);
+    } else {
+      console.log(data, "Yay Challenge server action submitted")
+    }
+
+    // submitChallengeHandler(formData);
     closeChallengerHandler();
   };
 
@@ -88,7 +93,9 @@ export function ChallengerForm({
             className="input"
             type="text"
             value={challenge}
-            onChange={(e) => setChallenge(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setChallenge(e.target.value)
+            }
             required
           />
         </div>
@@ -100,7 +107,9 @@ export function ChallengerForm({
             name="quantity"
             className="input"
             type="number"
-            onChange={(e) => setQuantity(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setQuantity(e.target.value)
+            }
           />
         </div>
 
@@ -111,7 +120,9 @@ export function ChallengerForm({
             name="deadline"
             className="input"
             type="date"
-            onChange={(e) => setDeadline(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setDeadline(e.target.value)
+            }
           />
         </div>
         {/* <div className="input-group">
@@ -120,7 +131,7 @@ export function ChallengerForm({
             id="type"
             name="type"
             className="select"
-            onChange={(e) => setChallenge(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setChallenge(e.target.value)}
           >
             <option value="NUMERICAL">Numerical</option>
             <option value="BOOLEAN">Boolean</option>
@@ -133,11 +144,11 @@ export function ChallengerForm({
             id="description"
             name="description"
             className="textarea"
-            onChange={(e) => setChallenge(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setChallenge(e.target.value)}
           />
         </div> */}
 
-        <button >Create Challenge</button>
+        <button>Create Challenge</button>
       </form>
     </section>
   );
