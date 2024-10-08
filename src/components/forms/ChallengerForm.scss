@@ -1,5 +1,5 @@
 @use "@/styles/_variables.scss" as *;
-
+@import "@/styles/_inputs.scss";
 
 .challenger_container {
   border: $violet;
@@ -9,9 +9,6 @@
     flex-direction: column;
 
     .input-group {
-      border: $border;
     }
   }
 }
-
-
