@@ -1,4 +1,5 @@
 "use server";
+import { auth } from "@clerk/nextjs/server";
 
 interface ChallengeFormData {
   challenge: string;
@@ -20,13 +21,17 @@ async function addChallenge(
   const quantityValue = formData.get("quantity");
   const deadlineValue = formData.get("deadline");
 
-  if (!challengeValue || !quantityValue || !deadlineValue) {
+  if (!challengeValue || challengeValue === "") {
     return { error: "Learn to fill out a form" };
   }
 
   const challenge: string = challengeValue.toString(); //Ensure challenge is a string
   const quantity: number = parseInt(quantityValue.toString()); //Ensure quantity is a number
   const deadline: string = deadlineValue.toString(); //Ensure deadline is a string
+
+  //Get logged in user
+  const { userId } = auth();
+  console.log(userId, "userId");
 
   const challengeData: ChallengeFormData = {
     challenge,
