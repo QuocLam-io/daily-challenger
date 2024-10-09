@@ -1,3 +1,4 @@
+import React from "react";
 import "./ChallengerModal.scss";
 import { ChallengerForm } from "../forms/ChallengerForm";
 import { useRouter } from "next/navigation";
@@ -10,10 +11,16 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-export function ChallengerModal({
+/* ---------------------------------- Types --------------------------------- */
+interface ChallengeModalProps {
+  challengerModalOpen: boolean;
+  setChallengerModalOpen: (open: boolean) => void;
+}
+
+export const ChallengerModal: React.FC<ChallengerModalProps> = ({
   challengerModalOpen,
   setChallengerModalOpen,
-}) {
+}) => {
   const router = useRouter();
 
   const closeChallengerHandler = () => {
@@ -36,4 +43,4 @@ export function ChallengerModal({
       </DialogContent>
     </Dialog>
   );
-}
+};

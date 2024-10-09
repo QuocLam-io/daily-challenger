@@ -5,7 +5,8 @@ import { useState } from "react";
 import { ChallengerModal } from "./modals/ChallengerModal";
 
 const Challenger = () => {
-  let [challengerModalOpen, setChallengerModalOpen] = useState(false);
+  const [challengerModalOpen, setChallengerModalOpen] =
+    useState<boolean>(false);
 
   return (
     <div>

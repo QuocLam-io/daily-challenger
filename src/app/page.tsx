@@ -1,6 +1,6 @@
 "use client";
 // import { auth } from "@clerk/nextjs/server"; //!Will have you use client side function
-import Challenger from "@/components/Challenger.jsx";
+import Challenger from "@/components/Challenger.tsx";
 
 export default function Home() {
   //! ------------------ New Design will have public functions ----------------- /

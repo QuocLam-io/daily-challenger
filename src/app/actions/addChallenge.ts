@@ -51,7 +51,7 @@ async function addChallenge(formData: FormData): Promise<ChallengeResult> {
     // console.log(userId, "User ID");
   } catch (error) {
     console.log(error.message, "Error adding challenge");
-    return { error: error.message };
+    return { error: "Uh oh, better call Quoc" };
   }
 }
 
