@@ -1,5 +1,7 @@
 "use server";
 import { auth } from "@clerk/nextjs/server";
+import { db } from "../../../lib/db";
+import { revalidatePath } from "next/cache"; //After a challenge is added, we want to revalidate the cache by refreshing the page
 
 interface ChallengeFormData {
   challenge: string;
@@ -14,9 +16,7 @@ interface ChallengeResult {
   error?: string;
 }
 
-async function addChallenge(
-  formData: ChallengeFormData
-): Promise<ChallengeResult> {
+async function addChallenge(formData: FormData): Promise<ChallengeResult> {
   const challengeValue = formData.get("challenge");
   const quantityValue = formData.get("quantity");
   const deadlineValue = formData.get("deadline");
@@ -26,24 +26,33 @@ async function addChallenge(
   }
 
   const challenge: string = challengeValue.toString(); //Ensure challenge is a string
-  const quantity: number = parseInt(quantityValue.toString()); //Ensure quantity is a number
-  const deadline: string = deadlineValue.toString(); //Ensure deadline is a string
-
-  //Get logged in user
-  const { userId } = auth();
+  const quantity: number = quantityValue
+    ? parseInt(quantityValue.toString(), 10)
+    : 0; // Ensure quantity is a number
+  const deadline: Date | null =
+    deadlineValue && deadlineValue !== ""
+      ? new Date(deadlineValue.toString())
+      : null; //Ensure deadline is a date object for prisma schema
 
   //Check if user is logged in
-  if (!userId){
-    return {error: "User not found"}
-  } 
+  const { userId } = auth();
+  if (!userId) {
+    return { error: "User not found" };
+  }
 
-  const challengeData: ChallengeFormData = {
-    challenge,
-    quantity,
-    deadline,
-  };
+  try {
+    const challengeData: ChallengeFormData = await db.challenge.create({
+      data: { challenge, quantity, deadline, userId },
+    });
 
-  return { data: challengeData };
+    //Revalidate cache
+    revalidatePath("/");
+    return { data: challengeData };
+    // console.log(userId, "User ID");
+  } catch (error) {
+    console.log(error.message, "Error adding challenge");
+    return { error: error.message };
+  }
 }
 
 export default addChallenge;
