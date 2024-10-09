@@ -7,6 +7,7 @@ import { z } from "zod";
 
 import { ContactsModal } from "@/components/modals/ContactsModal";
 import addChallenge from "@/app/actions/addChallenge";
+import { toast } from "react-toastify";
 
 /* ---------------------------- Types/Interfaces ---------------------------- */
 
@@ -73,9 +74,10 @@ export function ChallengerForm({
     const { data, error } = await addChallenge(formData);
 
     if (error) {
-      alert(error);
+      toast.error(error);
     } else {
-      console.log(data, "Yay Challenge server action submitted")
+      toast.success("Challenge submitted successfully");
+      console.log(data, "Yay Challenge server action submitted");
     }
 
     // submitChallengeHandler(formData);
@@ -96,7 +98,6 @@ export function ChallengerForm({
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setChallenge(e.target.value)
             }
-            required
           />
         </div>
 

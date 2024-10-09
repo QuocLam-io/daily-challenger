@@ -31,7 +31,11 @@ async function addChallenge(
 
   //Get logged in user
   const { userId } = auth();
-  console.log(userId, "userId");
+
+  //Check if user is logged in
+  if (!userId){
+    return {error: "User not found"}
+  } 
 
   const challengeData: ChallengeFormData = {
     challenge,
