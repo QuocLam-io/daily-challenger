@@ -1,6 +1,7 @@
 "use client";
 // import { auth } from "@clerk/nextjs/server"; //!Will have you use client side function
 import Challenger from "@/components/Challenger.tsx";
+import ActiveChallenges from "@/components/ActiveChallenges";
 
 export default function Home() {
   //! ------------------ New Design will have public functions ----------------- /
@@ -16,6 +17,7 @@ export default function Home() {
     <main>
       <h1>Welcome to your Dashboard!</h1>
       <Challenger />
+      <ActiveChallenges />
     </main>
   );
 }

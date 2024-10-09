@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 
 /* ---------------------------------- Types --------------------------------- */
-interface ChallengeModalProps {
+interface ChallengerModalProps {
   challengerModalOpen: boolean;
   setChallengerModalOpen: (open: boolean) => void;
 }

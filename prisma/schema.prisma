@@ -18,7 +18,6 @@ model User {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   challenges  Challenge[]
-
   // Relations for user connections
   connectionsRequested UserConnection[] @relation("requester")
   connectionsReceived  UserConnection[] @relation("receiver")
@@ -34,13 +33,6 @@ model UserConnection {
   receiver    User             @relation("receiver", fields: [receiverId], references: [id], onDelete: Cascade)
 
   @@unique([requesterId, receiverId])
-}
-
-enum ConnectionStatus {
-  PENDING
-  ACCEPTED
-  DECLINED
-  BLOCKED
 }
 
 model Challenge {
@@ -62,6 +54,13 @@ model Challenge {
 
   @@index([userId])
   @@index([visibility])
+}
+
+enum ConnectionStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  BLOCKED
 }
 
 enum ChallengeType {
