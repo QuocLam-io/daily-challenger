@@ -9,6 +9,7 @@ const ActiveChallenges = () => {
     const fetchChallenges = async () => {
       const results = await getActiveChallenges();
       console.log(results.data, "results");
+      console.log(results.test, "test");
       setActiveChallenges(results.data);
     };
 

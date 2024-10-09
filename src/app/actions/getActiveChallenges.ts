@@ -21,12 +21,17 @@ async function getActiveChallenges(): Promise<ActiveChallengesResults> {
           { deadline: null }, // No deadline
           { deadline: { gte: new Date() } }, // Deadline is in the future or today
         ],
+        // TODO: Also filter out if they're completed after implementing the completed toggle
         // completed: false, // Uncomment after implementing the completed toggle
       },
     });
+    const test = await db.challenge.findMany({
+      where: {
+        userId,
+      },
+    });
 
-    // TODO: Also filter out if they're completed after implementing the completed toggle
-    return { data: activeChallenges };
+    return { data: activeChallenges, test: test };
   } catch (error) {
     console.log(error.message, "Error fetching active challenges");
     return { error: "Uh oh, better call Quoc" };
