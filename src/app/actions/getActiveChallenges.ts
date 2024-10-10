@@ -26,10 +26,18 @@ async function getActiveChallenges(): Promise<ActiveChallengesResults> {
       },
     });
 
-    return { data: activeChallenges };
+    // return { data: activeChallenges };
+    return {
+      data: activeChallenges.map((challenge) => ({
+        ...challenge,
+        deadline: challenge.deadline
+          ? challenge.deadline.toLocaleDateString()
+          : null,
+      })),
+    };
   } catch (error) {
     console.log(error.message, "Error fetching active challenges");
-    return { error: "Uh oh, better call Quoc" };
+    return { error: "Uh oh, better call Saul" };
   }
 }
 
