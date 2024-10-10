@@ -3,9 +3,11 @@
 import React, { useEffect, useState } from "react";
 import "./ActiveChallenges.scss";
 import getActiveChallenges from "@/app/actions/getActiveChallenges";
+import deleteChallenge from "@/app/actions/deleteChallenge";
+import { toast } from "react-toastify";
 
 interface ActiveChallenges {
-  id: number;
+  id: string;
   challenge: string;
   deadline: string | null;
   // TODO: don't foget to add to this interface as the challenge object grows
@@ -16,14 +18,36 @@ const ActiveChallenges = () => {
     []
   );
 
-  useEffect(() => {
-    const fetchChallenges = async () => {
-      const results = await getActiveChallenges();
-      console.log(results.data, "results");
+  //GET Active Challenges
+  const fetchActiveChallengesHandler = async () => {
+    const results = await getActiveChallenges();
+    if (results.data) {
       setActiveChallenges(results.data);
-    };
+    }
+  };
 
-    fetchChallenges();
+  //DELETE Active Challenges
+  const deleteChallengeHandler = async (challengeId: string) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this challenge?"
+    );
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    const { message, error } = await deleteChallenge(challengeId);
+
+    if (error) {
+      toast.error(error);
+    } else {
+      fetchActiveChallengesHandler();
+      toast.success("Challenge deleted");
+    }
+  };
+
+  useEffect(() => {
+    fetchActiveChallengesHandler();
   }, []);
 
   return (
@@ -35,6 +59,9 @@ const ActiveChallenges = () => {
           <div key={challenge.id}>
             <h2>{challenge.challenge}</h2>
             <p>{challenge.deadline ? challenge.deadline : "deadline"}</p>
+            <button onClick={() => deleteChallengeHandler(challenge.id)}>
+              Delete
+            </button>
           </div>
         );
       })}

@@ -20,13 +20,13 @@ async function getActiveChallenges(): Promise<ActiveChallengesResults> {
         // completed: false, // Uncomment after implementing the completed toggle
         userId,
         OR: [
-          { deadline: null }, // No deadline
+          { deadline: null }, // No deadline set
           { deadline: { gte: new Date() } }, // Deadline is in the future or today
         ],
       },
     });
 
-    // return { data: activeChallenges };
+    // TODO: convert deadline string after design approves
     return {
       data: activeChallenges.map((challenge) => ({
         ...challenge,
