@@ -16,22 +16,17 @@ async function getActiveChallenges(): Promise<ActiveChallengesResults> {
   try {
     const activeChallenges = await db.challenge.findMany({
       where: {
+        // TODO: Also filter out if they're completed after implementing the completed toggle
+        // completed: false, // Uncomment after implementing the completed toggle
         userId,
         OR: [
           { deadline: null }, // No deadline
           { deadline: { gte: new Date() } }, // Deadline is in the future or today
         ],
-        // TODO: Also filter out if they're completed after implementing the completed toggle
-        // completed: false, // Uncomment after implementing the completed toggle
-      },
-    });
-    const test = await db.challenge.findMany({
-      where: {
-        userId,
       },
     });
 
-    return { data: activeChallenges, test: test };
+    return { data: activeChallenges };
   } catch (error) {
     console.log(error.message, "Error fetching active challenges");
     return { error: "Uh oh, better call Quoc" };
