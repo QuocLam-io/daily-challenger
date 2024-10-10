@@ -1,24 +1,21 @@
-"use server";
-
-import React, { useState, useEffect } from "react";
+"use client";
+//Reminder to self: using the "use client" because of future delete function
+import React, { useEffect } from "react";
 import "./ActiveChallenges.scss";
 import getActiveChallenges from "@/app/actions/getActiveChallenges";
 
-const ActiveChallenges = async () => {
-  const { activeChallenges } = await getActiveChallenges();
+const ActiveChallenges = () => {
+  const [activeChallenges, setActiveChallenges] = React.useState([]);
 
-  // const [activeChallenges, setActiveChallenges] = useState([]);
+  useEffect(() => {
+    const fetchChallenges = async () => {
+      const results = await getActiveChallenges();
+      console.log(results, "results");
+      setActiveChallenges(results.data);
+    };
 
-  // useEffect(() => {
-  //   const fetchChallenges = async () => {
-  //     const results = await getActiveChallenges();
-  //     console.log(results.data, "results");
-  //     console.log(results.test, "test");
-  //     setActiveChallenges(results.data);
-  //   };
-
-  //   fetchChallenges();
-  // }, []);
+    fetchChallenges();
+  }, []);
 
   return (
     <div className="active-challenges__container">

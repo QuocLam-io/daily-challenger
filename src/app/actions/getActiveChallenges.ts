@@ -26,8 +26,7 @@ async function getActiveChallenges(): Promise<ActiveChallengesResults> {
       },
     });
 
-    // return { data: activeChallenges };
-    return { activeChallenges };
+    return { data: activeChallenges };
   } catch (error) {
     console.log(error.message, "Error fetching active challenges");
     return { error: "Uh oh, better call Quoc" };
