@@ -1,16 +1,11 @@
-"use client";
-// import { auth } from "@clerk/nextjs/server"; //!Will have you use client side function
+// "use client";
+// import { auth } from "@clerk/nextjs/server";
 import Challenger from "@/components/Challenger.tsx";
 import ActiveChallenges from "@/components/ActiveChallenges";
 
 export default function Home() {
   //! ------------------ New Design will have public functions ----------------- /
   // const { userId } = auth();
-
-  // if (!userId) {
-  //   redirect("/sign-in");
-  //   return null; // Prevent further rendering
-  // }
   //! -------------------------------------------------------------------------- /
 
   return (

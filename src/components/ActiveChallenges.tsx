@@ -1,20 +1,24 @@
-import React, { useEffect } from "react";
+"use server";
+
+import React, { useState, useEffect } from "react";
 import "./ActiveChallenges.scss";
 import getActiveChallenges from "@/app/actions/getActiveChallenges";
 
-const ActiveChallenges = () => {
-  const [activeChallenges, setActiveChallenges] = React.useState([]);
+const ActiveChallenges = async () => {
+  const { activeChallenges } = await getActiveChallenges();
 
-  useEffect(() => {
-    const fetchChallenges = async () => {
-      const results = await getActiveChallenges();
-      console.log(results.data, "results");
-      console.log(results.test, "test");
-      setActiveChallenges(results.data);
-    };
+  // const [activeChallenges, setActiveChallenges] = useState([]);
 
-    fetchChallenges();
-  }, []);
+  // useEffect(() => {
+  //   const fetchChallenges = async () => {
+  //     const results = await getActiveChallenges();
+  //     console.log(results.data, "results");
+  //     console.log(results.test, "test");
+  //     setActiveChallenges(results.data);
+  //   };
+
+  //   fetchChallenges();
+  // }, []);
 
   return (
     <div className="active-challenges__container">
