@@ -1,18 +1,17 @@
-// "use client";
-// import { auth } from "@clerk/nextjs/server";
-import Challenger from "@/components/Challenger.tsx";
-import ActiveChallenges from "@/components/ActiveChallenges";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  //! ------------------ New Design will have public functions ----------------- /
-  // const { userId } = auth();
-  //! -------------------------------------------------------------------------- /
 
-  return (
-    <main>
-      <h1>Welcome to your Dashboard!</h1>
-      <Challenger />
-      <ActiveChallenges />
-    </main>
-  );
+export default function LandingPage() {
+  const { userId } = auth();
+
+  if (userId) {
+    redirect("/home");
+  } else {
+    return (
+      <main>
+        <h1>Public!</h1>
+      </main>
+    );
+  }
 }

@@ -1,5 +1,4 @@
 "use client";
-//Reminder to self: using the "use client" because of future delete function
 import React, { useEffect, useState } from "react";
 import "./ActiveChallenges.scss";
 import getAllChallenges from "@/app/actions/getAllChallenges";
