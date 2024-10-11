@@ -30,6 +30,5 @@ async function getAllChallenges(): Promise<ChallengesResults> {
 }
 
 export default getAllChallenges;
-//TODO: Fetch on the homepage
 //TODO: Add fetching in the state manager, so that when we edit the challenges, zustand will automatically update the state and rerender the component
 //TODO: Refactor to filter out active challenges on the clientside
