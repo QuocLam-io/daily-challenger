@@ -2,7 +2,7 @@
 //Reminder to self: using the "use client" because of future delete function
 import React, { useEffect, useState } from "react";
 import "./ActiveChallenges.scss";
-import getActiveChallenges from "@/app/actions/getActiveChallenges";
+import getAllChallenges from "@/app/actions/getAllChallenges";
 import deleteChallenge from "@/app/actions/deleteChallenge";
 import { toast } from "react-toastify";
 
@@ -20,7 +20,7 @@ const ActiveChallenges = () => {
 
   //GET Active Challenges
   const fetchActiveChallengesHandler = async () => {
-    const results = await getActiveChallenges();
+    const results = await getAllChallenges();
     if (results.data) {
       setActiveChallenges(results.data);
     }
@@ -58,7 +58,7 @@ const ActiveChallenges = () => {
         return (
           <div key={challenge.id}>
             <h2>{challenge.challenge}</h2>
-            <p>{challenge.deadline ? challenge.deadline : "deadline"}</p>
+            {/* <p>{challenge.deadline ? challenge.deadline : "deadline"}</p> */}
             <button onClick={() => deleteChallengeHandler(challenge.id)}>
               Delete
             </button>
