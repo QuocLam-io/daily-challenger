@@ -16,14 +16,6 @@ const ActiveChallenges = () => {
   const challenges = useChallengeStore((state) => state.challenges);
   const setChallenges = useChallengeStore((state) => state.setChallenges);
 
-  //! GET Active Challenges
-  // const fetchActiveChallengesHandler = async () => {
-  //   const results = await getAllChallenges();
-  //   if (results.data) {
-  //     setActiveChallenges(results.data);
-  //   }
-  // };
-
   //! DELETE Active Challenges
   const deleteChallengeHandler = async (challengeId: string) => {
     const confirmDelete = window.confirm(
@@ -34,19 +26,18 @@ const ActiveChallenges = () => {
       return;
     }
 
-    const { message, error } = await deleteChallenge(challengeId);
+    const {
+      // message,
+      error,
+    } = await deleteChallenge(challengeId);
 
     if (error) {
       toast.error(error);
     } else {
-      fetchActiveChallengesHandler();
+      // fetchActiveChallengesHandler(); TODO: refactor to use zustand
       toast.success("Challenge deleted");
     }
   };
-
-  // useEffect(() => {
-  //   fetchActiveChallengesHandler();
-  // }, []);
 
   return (
     <div className="active-challenges__container">
