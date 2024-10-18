@@ -15,9 +15,11 @@ const Navbar = async () => {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
+          <div className="signed-out-wrapper">
+            <SignedOut className="signed-out-wrapper">
+              <SignInButton />
+            </SignedOut>
+          </div>
         </div>
       </div>
     </nav>

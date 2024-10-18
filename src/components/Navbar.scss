@@ -3,12 +3,25 @@
 .navbar {
   padding: 12px 8px 12px 24px;
   width: 100%;
-  border: $border;
+  // border: $border;
 
   .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+
+    .auth-actions {
+      .signed-out-wrapper {
+        padding: 8px 16px;
+
+        button {
+          color: #1a1a1a;
+          font-family: var(--font-work-sans), sans-serif;
+          line-height: 24px;
+          letter-spacing: 0.16px;
+        }
+      }
+    }
   }
 }
