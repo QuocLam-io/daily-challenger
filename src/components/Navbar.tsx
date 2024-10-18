@@ -2,6 +2,7 @@ import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { checkUser } from "@/lib/checkUser";
 import "./Navbar.scss";
+import Logo from "./Logo";
 
 const Navbar = async () => {
   const user = await checkUser();
@@ -9,8 +10,8 @@ const Navbar = async () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h2>Daily Challenger</h2>
-        <div className="">
+        <Logo />
+        <div className="auth-actions">
           <SignedIn>
             <UserButton />
           </SignedIn>

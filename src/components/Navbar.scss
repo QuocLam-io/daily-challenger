@@ -1,11 +1,14 @@
 @use "@/styles/_variables.scss" as *;
 
 .navbar {
+  padding: 12px 8px 12px 24px;
   width: 100%;
   border: $border;
 
   .navbar-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 24px;
   }
 }

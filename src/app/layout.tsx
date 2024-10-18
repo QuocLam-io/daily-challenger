@@ -1,21 +1,17 @@
 import React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Ultra } from "next/font/google";
 import "./globals.scss";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const ultraFont = Ultra({
+  weight: "400",
+  variable: "--font-ultra",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +28,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`
+          ${ultraFont.variable}
+          antialiased`}
         >
           <main>
             {/* {userId && <Navbar />} */}
