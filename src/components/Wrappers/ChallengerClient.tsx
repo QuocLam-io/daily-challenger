@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { ChallengerModal } from "../Modals/ChallengerModal";
 
-const Challenger = () => {
+const ChallengerClient = () => {
   const [challengerModalOpen, setChallengerModalOpen] =
     useState<boolean>(false);
 
@@ -25,4 +25,4 @@ const Challenger = () => {
   );
 };
 
-export default Challenger;
+export default ChallengerClient;

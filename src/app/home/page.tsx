@@ -1,5 +1,5 @@
 import React from "react";
-import Challenger from "@/components/Wrappers/Challenger";
+import ChallengerClient from "@/components/Wrappers/ChallengerClient";
 import ActiveChallenges from "@/components/ActiveChallenges";
 import ChallengeWrapper from "@/components/Wrappers/ChallengesWrapper";
 
@@ -8,7 +8,7 @@ const Home = () => {
     <ChallengeWrapper>
       <main>
         <h1>Private Page!</h1>
-        <Challenger />
+        <ChallengerClient />
         <ActiveChallenges />
       </main>
     </ChallengeWrapper>

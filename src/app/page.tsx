@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-
+import LandingClient from "@/components/Wrappers/LandingClient";
 
 export default function LandingPage() {
   const { userId } = auth();
@@ -10,7 +10,7 @@ export default function LandingPage() {
   } else {
     return (
       <main>
-        <h1>Public!</h1>
+        <LandingClient />
       </main>
     );
   }

@@ -40,7 +40,7 @@ export default function RootLayout({
           ${workSansFont.variable}
           antialiased`}
         >
-          <main>
+          <main className="layout-container">
             {/* {userId && <Navbar />} */}
             <Navbar />
             {children}
