@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useState } from "react";
-import { ChallengerModal } from "./modals/ChallengerModal";
+import { ChallengerModal } from "../Modals/ChallengerModal";
 
 const Challenger = () => {
   const [challengerModalOpen, setChallengerModalOpen] =

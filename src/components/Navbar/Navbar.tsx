@@ -2,7 +2,7 @@ import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { checkUser } from "@/lib/checkUser";
 import "./Navbar.scss";
-import Logo from "./Logo";
+import Logo from "../Logo/Logo";
 
 const Navbar = async () => {
   const user = await checkUser();

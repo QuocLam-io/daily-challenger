@@ -1,7 +1,7 @@
 import React from "react";
-import Challenger from "@/components/Challenger";
+import Challenger from "@/components/Wrappers/Challenger";
 import ActiveChallenges from "@/components/ActiveChallenges";
-import ChallengeWrapper from "@/components/wrappers/ChallengeWrapper";
+import ChallengeWrapper from "@/components/Wrappers/ChallengesWrapper";
 
 const Home = () => {
   return (

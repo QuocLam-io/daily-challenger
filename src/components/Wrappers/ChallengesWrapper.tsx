@@ -5,7 +5,7 @@ import getAllChallenges from "@/app/actions/getAllChallenges";
 
 // TODO: Note to self: the purpose of this wrapper component is to fetch all challenges of a user and set them to zustand. The dependency array is set to [setChallenges] because we want to refetch the challenges and rerender components after making any changes to the database's challenges collection.
 
-const ChallengeWrapper = ({ children }: { children: React.ReactNode }) => {
+const ChallengesWrapper = ({ children }: { children: React.ReactNode }) => {
   const setChallenges = useChallengeStore((state) => state.setChallenges);
 
   useEffect(() => {
@@ -25,4 +25,4 @@ const ChallengeWrapper = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-export default ChallengeWrapper;
+export default ChallengesWrapper;
