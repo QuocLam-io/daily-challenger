@@ -12,9 +12,11 @@ const Navbar = async () => {
       <div className="navbar-container">
         <Logo />
         <div className="auth-actions">
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+          <div className="signed-in-wrapper">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
           <div className="signed-out-wrapper">
             <SignedOut className="signed-out-wrapper">
               <SignInButton />

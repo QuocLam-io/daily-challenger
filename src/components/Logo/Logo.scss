@@ -22,4 +22,21 @@
       line-height: 100%;
     }
   }
+
+  @media (min-width: $portrait) {
+    // border: $border;
+
+    .logo-container {
+      gap: 4px;
+
+      .logo-top {
+        font-size: 12px;
+        letter-spacing: 0.12px;
+      }
+      .logo-bottom {
+        font-size: 16px;
+        letter-spacing: 0.16px;
+      }
+    }
+  }
 }
