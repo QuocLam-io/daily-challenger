@@ -21,10 +21,45 @@ const EmptyLanding = () => {
           volutpat. Quis montes at sit dignissim parturient lectus lorem.
         </p>
       </section>
-      <section className="public-empty-examples"></section>
-      <section className="public-empty-footer"></section>
+      <section className="public-empty-examples">
+        <h3>My Challenges</h3>
+        <ExampleCard />
+        <ExampleCard />
+      </section>
+      <section className="public-empty-footer">
+        <h3>Try it out:</h3>
+        <button>
+          <Image
+            src="/images/plus-in-circle.png"
+            alt="Create a challenge plus icon"
+            width={28}
+            height={28}
+          />
+          <p>Create a challenge</p>
+        </button>
+      </section>
     </div>
   );
 };
 
 export default EmptyLanding;
+
+const ExampleCard = () => {
+  return (
+    <div className="example-card">
+      <div className="example-card-icon"></div>
+      <div className="example-card-info">
+        <h4>Jog 4 Miles</h4>
+        <p>Ends in 3 days</p>
+      </div>
+      <div className="example-card-check">
+        <Image
+          src="/images/example-check-btn.png"
+          alt="example check btn"
+          width={28}
+          height={28}
+        />
+      </div>
+    </div>
+  );
+};
