@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import EmptyLanding from "@/components/EmptyLanding";
-// import FilledLanding from "@/components/FilledLanding";
+// import FilledLanding from "@/components/pages/EmptyLanding";
+import EmptyLanding from "@/components/pages/EmptyLanding";
 
 export default function LandingClient() {
   const [hasPublicChallenge, setHasPublicChallenge] = useState(false);
@@ -15,5 +15,5 @@ export default function LandingClient() {
   // }, []);
 
   // return hasPublicChallenge ? <FilledLanding /> : <EmptyLanding />;
-  return <h1>Blub</h1>;
+  return <EmptyLanding />;
 }

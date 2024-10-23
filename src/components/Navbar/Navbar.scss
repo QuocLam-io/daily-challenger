@@ -3,11 +3,10 @@
 .navbar {
   padding: 12px 8px 12px 24px;
   width: 100%;
-  // border: $border;
   position: fixed;
   top: 0;
-  // bottom: 0;
   z-index: 1000;
+  // border: $border;
 
   .navbar-container {
     display: flex;
