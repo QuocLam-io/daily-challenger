@@ -7,3 +7,8 @@ $portrait: 500px;
 $landscape: 1024px;
 $desktop: 1200px;
 $desktopXL: 1800px;
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
