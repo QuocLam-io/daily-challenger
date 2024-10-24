@@ -17,14 +17,15 @@ const EmptyLanding = () => {
         />
         <h1>Challenge yourself:</h1>
         <p>
-          Sit blandit vel enim ante sagittis pellentesque consectetur elit
-          volutpat. Quis montes at sit dignissim parturient lectus lorem.
+          Never get caught by your ex looking like a slob again! Crush those push-ups!
+          hit that run! read that book! You’ve got this— talk is
+          cheap, but showing off your hard-earned results? Priceless.
         </p>
       </section>
       <section className="public-empty-examples">
         <h3>My Challenges</h3>
-        <ExampleCard />
-        <ExampleCard />
+        <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
+        <ExampleCard title="Jog 4 miles" dead="Ends in 7 days" />
       </section>
       <section className="public-empty-footer">
         <h3>Try it out:</h3>
@@ -44,13 +45,13 @@ const EmptyLanding = () => {
 
 export default EmptyLanding;
 
-const ExampleCard = () => {
+const ExampleCard = ({ title, dead }) => {
   return (
     <div className="example-card">
       <div className="example-card-icon"></div>
       <div className="example-card-info">
-        <h4>Jog 4 Miles</h4>
-        <p>Ends in 3 days</p>
+        <h4>{title}</h4>
+        <p>{dead}</p>
       </div>
       <div className="example-card-check">
         <Image
