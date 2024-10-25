@@ -4,7 +4,7 @@ import React from "react";
 import "./EmptyLanding.scss";
 import Image from "next/image";
 
-const EmptyLanding = () => {
+const EmptyLanding: React.FC = () => {
   return (
     <div className="public-empty-container">
       <section className="public-empty-hero">
@@ -17,8 +17,8 @@ const EmptyLanding = () => {
         />
         <h1>Challenge yourself:</h1>
         <p>
-          Never get caught by your ex looking like a slob again! Crush those push-ups!
-          hit that run! read that book! You’ve got this— talk is
+          Never get caught by your ex looking like a slob again! Crush those
+          push-ups! hit that run! read that book! You’ve got this— talk is
           cheap, but showing off your hard-earned results? Priceless.
         </p>
       </section>
@@ -45,7 +45,12 @@ const EmptyLanding = () => {
 
 export default EmptyLanding;
 
-const ExampleCard = ({ title, dead }) => {
+interface ExampleCardProps {
+  title: string;
+  dead: string;
+}
+
+const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
   return (
     <div className="example-card">
       <div className="example-card-icon"></div>
