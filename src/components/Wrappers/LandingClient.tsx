@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 // import FilledLanding from "@/components/pages/EmptyLanding";
-import EmptyLanding from "@/components/pages/EmptyLanding";
+import EmptyLanding from "@/components/public-landing/EmptyLanding";
 
 export default function LandingClient() {
   const [hasPublicChallenge, setHasPublicChallenge] = useState(false);

@@ -2,7 +2,7 @@
 
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { ChallengerModal } from "../Modals/ChallengerModal";
+import { ChallengerModal } from "../modals/ChallengerModal";
 
 const ChallengerClient = () => {
   const [challengerModalOpen, setChallengerModalOpen] =

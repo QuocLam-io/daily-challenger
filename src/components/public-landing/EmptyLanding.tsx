@@ -1,10 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import "./EmptyLanding.scss";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const EmptyLanding: React.FC = () => {
+  const [publicChallengerModalOpen, setPublicChallengerModalOpen] =
+    useState(false);
+
+  const publicChallengerModalClose = () => {
+    setPublicChallengerModalOpen(false);
+  };
+
   return (
     <div className="public-empty-container">
       <section className="public-empty-hero">
@@ -29,7 +37,7 @@ const EmptyLanding: React.FC = () => {
       </section>
       <section className="public-empty-footer">
         <h3>Try it out:</h3>
-        <button>
+        <button onClick={() => setPublicChallengerModalOpen(true)}>
           <Image
             src="/images/plus-in-circle.png"
             alt="Create a challenge plus icon"
@@ -39,11 +47,18 @@ const EmptyLanding: React.FC = () => {
           <p>Create a challenge</p>
         </button>
       </section>
+      <AnimatePresence>
+        {publicChallengerModalOpen && (
+          <PublicChallengerModal onClose={publicChallengerModalClose} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default EmptyLanding;
+
+/* ------------------------- Example Card Component ------------------------- */
 
 interface ExampleCardProps {
   title: string;
@@ -69,3 +84,29 @@ const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
     </div>
   );
 };
+
+/* -------------------- Public Challenger Modal Component ------------------- */
+
+interface PublicChallengerModalProps {
+  onClose: () => void;
+}
+
+const PublicChallengerModal: React.FC<PublicChallengerModalProps> = ({
+  onClose,
+}) => {
+  return (
+    <motion.div
+      className="pc-modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="pc-modal-content">
+        
+      </div>
+    </motion.div>
+  );
+};
+
+// TODO: oh shit you should do Tablet and Desktop before getting carried away with the modal

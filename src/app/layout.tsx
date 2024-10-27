@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import { Ultra, Work_Sans, Asap } from "next/font/google";
 import "./globals.scss";
 import { ClerkProvider } from "@clerk/nextjs";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
