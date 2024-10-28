@@ -1,9 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
+//Styling
 import "./EmptyLanding.scss";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+//Components
+import Overlay from "../modals/Overlay";
 
 const EmptyLanding: React.FC = () => {
   const [publicChallengerModalOpen, setPublicChallengerModalOpen] =
@@ -49,7 +51,9 @@ const EmptyLanding: React.FC = () => {
       </section>
       <AnimatePresence>
         {publicChallengerModalOpen && (
-          <PublicChallengerModal onClose={publicChallengerModalClose} />
+          <Overlay onClose={publicChallengerModalClose}>
+            Blub
+          </Overlay>
         )}
       </AnimatePresence>
     </div>
@@ -87,26 +91,24 @@ const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
 
 /* -------------------- Public Challenger Modal Component ------------------- */
 
-interface PublicChallengerModalProps {
-  onClose: () => void;
-}
+// interface PublicChallengerModalProps {
+//   onClose: () => void;
+// }
 
-const PublicChallengerModal: React.FC<PublicChallengerModalProps> = ({
-  onClose,
-}) => {
-  return (
-    <motion.div
-      className="pc-modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <div className="pc-modal-content">
-        
-      </div>
-    </motion.div>
-  );
-};
+// const PublicChallengerModal: React.FC<PublicChallengerModalProps> = ({
+//   onClose,
+// }) => {
+//   return (
+//     <motion.div
+//       className="pc-modal-overlay"
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       exit={{ opacity: 0 }}
+//       transition={{ duration: 0.3 }}
+//     >
+//       <div className="pc-modal-content">
 
-// TODO: oh shit you should do Tablet and Desktop before getting carried away with the modal
+//       </div>
+//     </motion.div>
+//   );
+// };
