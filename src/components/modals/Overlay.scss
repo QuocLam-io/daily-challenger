@@ -9,11 +9,17 @@
   left: 0;
   min-height: 100svh;
   width: 100%;
+  padding: 40px 24px;
   background: rgba(0, 0, 0, 0.6);
   z-index: 100;
 }
 
-.overlay-wrapper.non-centered {
-  justify-content: flex-start;
+.overlay-wrapper.flex-align-start {
   align-items: flex-start;
+}
+
+.overlay-wrapper.portrait-align-center {
+  @media (min-width: $portrait) {
+    align-items: center;
+  }
 }

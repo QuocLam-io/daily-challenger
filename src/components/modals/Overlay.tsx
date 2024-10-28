@@ -6,14 +6,14 @@ import { motion } from "framer-motion";
 
 interface OverlayProps {
   children: React.ReactNode;
-  onClose?: () => void;
-  notCentered?: boolean;
+  customClassName?: string;
+  // onClose?: () => void;
 }
 
-const Overlay: React.FC<OverlayProps> = ({ children, onClose, notCentered }) => {
+const Overlay: React.FC<OverlayProps> = ({ children, customClassName }) => {
   return (
     <motion.div
-      className={`overlay-wrapper ${notCentered && "not-centered"}`}
+      className={`overlay-wrapper ${customClassName}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

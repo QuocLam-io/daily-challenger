@@ -51,7 +51,7 @@ const EmptyLanding: React.FC = () => {
       </section>
       <AnimatePresence>
         {publicChallengerModalOpen && (
-          <Overlay onClose={publicChallengerModalClose}>
+          <Overlay onClose={publicChallengerModalClose} customClassName={`flex-align-start portrait-align-center`} >
             Blub
           </Overlay>
         )}
@@ -91,24 +91,4 @@ const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
 
 /* -------------------- Public Challenger Modal Component ------------------- */
 
-// interface PublicChallengerModalProps {
-//   onClose: () => void;
-// }
 
-// const PublicChallengerModal: React.FC<PublicChallengerModalProps> = ({
-//   onClose,
-// }) => {
-//   return (
-//     <motion.div
-//       className="pc-modal-overlay"
-//       initial={{ opacity: 0 }}
-//       animate={{ opacity: 1 }}
-//       exit={{ opacity: 0 }}
-//       transition={{ duration: 0.3 }}
-//     >
-//       <div className="pc-modal-content">
-
-//       </div>
-//     </motion.div>
-//   );
-// };
