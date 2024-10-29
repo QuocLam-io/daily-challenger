@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 interface OverlayProps {
   children: React.ReactNode;
   customClassName?: string;
-  // onClose?: () => void;
 }
 
 const Overlay: React.FC<OverlayProps> = ({ children, customClassName }) => {

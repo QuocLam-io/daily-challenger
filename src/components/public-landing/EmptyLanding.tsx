@@ -28,7 +28,7 @@ const EmptyLanding: React.FC = () => {
         <h1>Challenge yourself:</h1>
         <p>
           Never get caught by your ex looking like a slob again! Crush those
-          push-ups! hit that run! read that book! You’ve got this— talk is
+          push-ups! Hit that run! Read that book! You’ve got this— talk is
           cheap, but showing off your hard-earned results? Priceless.
         </p>
       </section>
@@ -52,7 +52,8 @@ const EmptyLanding: React.FC = () => {
       <AnimatePresence>
         {publicChallengerModalOpen && (
           <Overlay onClose={publicChallengerModalClose} customClassName={`flex-align-start portrait-align-center`} >
-            Blub
+            Blub 
+            {/* TODO: content goes hurr */}
           </Overlay>
         )}
       </AnimatePresence>
@@ -89,6 +90,5 @@ const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
   );
 };
 
-/* -------------------- Public Challenger Modal Component ------------------- */
 
 
