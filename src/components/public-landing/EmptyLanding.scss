@@ -246,6 +246,9 @@
       @include flex-column;
       gap: 16px;
       padding: 16px;
+      input {
+        background: transparent;
+      }
     }
     &_footer {
     }

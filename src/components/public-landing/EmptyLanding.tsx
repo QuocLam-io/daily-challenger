@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
-import BlinkingInput from "../inputs/BlinkingInput";
 
 const EmptyLanding: React.FC = () => {
   const [publicChallengerModalOpen, setPublicChallengerModalOpen] =
@@ -125,7 +124,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </button>
         </div>
         <div className="public-challenger-form_body">
-          <BlinkingInput />
+          <input type="text" name="" id="" />
         </div>
         <div className="public-challenger-form_footer"></div>
       </form>
