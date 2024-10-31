@@ -101,6 +101,8 @@ interface PublicChallengerFormProps {
 const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
   onClose,
 }) => {
+  const [challenge, setChallenge] = useState("");
+
   return (
     <div className="public-challenger-form_container">
       <form className="public-challenger-form">
@@ -124,7 +126,17 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </button>
         </div>
         <div className="public-challenger-form_body">
-          <input autofocus type="text" name="" id="" />
+          <div className="input-wrapper">
+            {!challenge && <span className="blinking-caret"></span>}
+            <input
+              aria-label="Challenge input"
+              autofocus
+              type="text"
+              placeholder="Create a challenge"
+              value={challenge}
+              onChange={(e) => setChallenge(e.target.value)}
+            />
+          </div>
         </div>
         <div className="public-challenger-form_footer"></div>
       </form>

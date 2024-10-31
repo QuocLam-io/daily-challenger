@@ -247,14 +247,53 @@
       gap: 16px;
       padding: 16px;
 
+      .input-wrapper {
+        position: relative;
 
-      input {
-        background: transparent;
-        outline-color: transparent;
-        // caret-color: transparent;
+        .blinking-caret {
+          animation: blink 1.5s ease-in-out infinite;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          margin-left: 12px;
+          height: 24px;
+          border: var(--color-slate-900, #0f172a), 1.5px solid;
+        }
+        input {
+          width: 100%;
+          background: transparent;
+          outline-color: transparent;
+          padding: 12px;
+
+          &::placeholder {
+            color: rgba(26, 26, 26, 0.6);
+            font-family: var(--font-work-sans), sans-serif;
+            font-size: 20px;
+            line-height: 28px;
+            text-indent: 8px;
+          }
+        }
+
+        &:has(input[value=""]) input {
+          caret-color: transparent;
+        }
+
       }
     }
     &_footer {
     }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
