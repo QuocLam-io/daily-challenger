@@ -124,7 +124,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </button>
         </div>
         <div className="public-challenger-form_body">
-          <input type="text" name="" id="" />
+          <input autofocus type="text" name="" id="" />
         </div>
         <div className="public-challenger-form_footer"></div>
       </form>

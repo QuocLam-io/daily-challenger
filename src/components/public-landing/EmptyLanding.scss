@@ -246,8 +246,12 @@
       @include flex-column;
       gap: 16px;
       padding: 16px;
+
+
       input {
         background: transparent;
+        outline-color: transparent;
+        // caret-color: transparent;
       }
     }
     &_footer {
