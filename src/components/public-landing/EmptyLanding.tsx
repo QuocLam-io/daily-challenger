@@ -109,12 +109,16 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
   ];
 
   const setPublicChallengeHandler = (e) => {
-    console.log(challenge, "Challenge saved!");
     e.preventDefault();
     if (challenge) {
-      localStorage.setItem("publicChallenge", challenge);
+      const expirationTime = new Date();
+      expirationTime.setHours(expirationTime.getHours() + 24);
+  
+      localStorage.setItem("publicChallenge", JSON.stringify({ challenge, expiresAt: expirationTime }));
       alert("Challenge saved!");
-      // onClose(); // Close the modal after saving
+  
+      // TODO: ask designer how submission handles validation
+      // onClose();
     }
   };
 
