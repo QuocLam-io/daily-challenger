@@ -137,12 +137,41 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
               onChange={(e) => setChallenge(e.target.value)}
             />
           </div>
+          <div className="pro-example-features">
+            <div className="pro-example-feature">
+              <p>Ends in 1 day</p>
+              <div className="pro-fake-btn">
+                <p>Edit</p>
+                <div>PRO</div>
+              </div>
+            </div>
+            <div className="pro-example-feature">
+              <p>Does not repeat</p>
+              <div className="pro-fake-btn">
+                <p>Edit</p>
+                <div>PRO</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="public-challenger-form_footer"></div>
+        <div className="public-challenger-form_footer">
+          <button onClick={() => setPublicChallengerModalOpen(true)}>
+            <p>Create</p>
+            <Image
+              src="/images/bw-circle-right-arrow.png"
+              alt="Create a challenge arrow icon"
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
       </form>
       <section className="public-challenger-form_suggestions">
-        <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
-        <ExampleCard title="Jog 4 miles" dead="Ends in 7 days" />
+        <h3>Popular Challenges</h3>
+        <div className="suggestion-example-cards">
+          <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
+          <ExampleCard title="Jog 4 miles" dead="Ends in 7 days" />
+        </div>
       </section>
     </div>
   );
