@@ -103,9 +103,27 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
 }) => {
   const [challenge, setChallenge] = useState("");
 
+  const challengeSuggestions = [
+    { title: "Do 50 push-ups", dead: "Ends in 3 hours" },
+    { title: "Jog 3 miles", dead: "Ends in 7 days}" },
+  ];
+
+  const setPublicChallengeHandler = (e) => {
+    console.log(challenge, "Challenge saved!");
+    e.preventDefault();
+    if (challenge) {
+      localStorage.setItem("publicChallenge", challenge);
+      alert("Challenge saved!");
+      // onClose(); // Close the modal after saving
+    }
+  };
+
   return (
     <div className="public-challenger-form_container">
-      <form className="public-challenger-form">
+      <form
+        onSubmit={(e) => setPublicChallengeHandler(e)}
+        className="public-challenger-form"
+      >
         <div className="public-challenger-form_header">
           <Image
             src="/images/bw-lamp.png"
@@ -114,6 +132,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
             height={48}
           />{" "}
           <button
+            type="button"
             className="public-challenger-form_close-button"
             onClick={onClose}
           >
@@ -130,7 +149,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
             {!challenge && <span className="blinking-caret"></span>}
             <input
               aria-label="Challenge input"
-              autofocus
+              autoFocus
               type="text"
               placeholder="Create a challenge"
               value={challenge}
@@ -155,7 +174,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </div>
         </div>
         <div className="public-challenger-form_footer">
-          <button onClick={() => setPublicChallengerModalOpen(true)}>
+          <button>
             <p>Create</p>
             <Image
               src="/images/bw-circle-right-arrow.png"
@@ -169,11 +188,25 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
       <section className="public-challenger-form_suggestions">
         <h3>Popular Challenges</h3>
         <div className="suggestion-example-cards">
-          <button>
-            <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
+          <button
+            onClick={() => {
+              setChallenge(challengeSuggestions[0].title);
+            }}
+          >
+            <ExampleCard
+              title={challengeSuggestions[0].title}
+              dead="Ends in 3 hours"
+            />
           </button>
-          <button>
-            <ExampleCard title="Jog 3 miles" dead="Ends in 7 days" />
+          <button
+            onClick={() => {
+              setChallenge(challengeSuggestions[1].title);
+            }}
+          >
+            <ExampleCard
+              title={challengeSuggestions[1].title}
+              dead="Ends in 7 days"
+            />
           </button>
         </div>
       </section>
