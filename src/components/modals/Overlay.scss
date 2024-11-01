@@ -10,7 +10,12 @@
   min-height: 100svh;
   width: 100%;
   padding: 40px 24px;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(
+    0deg,
+    #1a1a1a 0%,
+    rgba(26, 26, 26, 0.8) 20%,
+    rgba(26, 26, 26, 0.75) 50.36%
+  );
   z-index: 100;
 }
 

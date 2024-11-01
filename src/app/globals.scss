@@ -48,13 +48,13 @@ figcaption {
   max-width: 65ch;
 }
 
-header,
-footer,
-main,
-section,
-article {
-  container-type: inline-size;
-}
+// header,
+// footer,
+// main,
+// section,
+// article {
+//   container-type: inline-size;
+// }
 
 @media (prefers-reduced-motion: no-preference) {
   :has(:target) {

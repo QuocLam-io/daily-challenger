@@ -169,8 +169,12 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
       <section className="public-challenger-form_suggestions">
         <h3>Popular Challenges</h3>
         <div className="suggestion-example-cards">
-          <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
-          <ExampleCard title="Jog 4 miles" dead="Ends in 7 days" />
+          <button>
+            <ExampleCard title="Do 50 push-ups" dead="Ends in 3 hours" />
+          </button>
+          <button>
+            <ExampleCard title="Jog 3 miles" dead="Ends in 7 days" />
+          </button>
         </div>
       </section>
     </div>
