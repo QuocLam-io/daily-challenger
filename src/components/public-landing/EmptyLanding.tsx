@@ -116,9 +116,9 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
   
       localStorage.setItem("publicChallenge", JSON.stringify({ challenge, expiresAt: expirationTime }));
       alert("Challenge saved!");
-  
-      // TODO: ask designer how submission handles validation
-      // onClose();
+
+      onClose();
+      window.location.reload();
     }
   };
 
