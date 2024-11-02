@@ -178,7 +178,9 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </div>
         </div>
         <div className="public-challenger-form_footer">
-          <button>
+          <button
+          disabled={!challenge}
+          >
             <p>Create</p>
             <Image
               src="/images/bw-circle-right-arrow.png"
