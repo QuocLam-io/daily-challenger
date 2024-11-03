@@ -25,7 +25,10 @@ const EmptyLanding: React.FC = () => {
           height={120}
           className="public-empty-hero-strong_man"
         />
-        <h1>Challenge yourself:</h1>
+        <div className="public-empty-hero_titles">
+          <h2>Say old chap...</h2>
+          <h1>Fancy a challenge?</h1>
+        </div>
         <p>
           Never get caught by your ex looking like a slob again! Crush those
           push-ups! Hit that run! Read that book! You’ve got this— talk is
@@ -113,8 +116,11 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
     if (challenge) {
       const expirationTime = new Date();
       expirationTime.setHours(expirationTime.getHours() + 24);
-  
-      localStorage.setItem("publicChallenge", JSON.stringify({ challenge, expiresAt: expirationTime }));
+
+      localStorage.setItem(
+        "publicChallenge",
+        JSON.stringify({ challenge, expiresAt: expirationTime })
+      );
       alert("Challenge saved!");
 
       onClose();
@@ -178,9 +184,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
           </div>
         </div>
         <div className="public-challenger-form_footer">
-          <button
-          disabled={!challenge}
-          >
+          <button disabled={!challenge}>
             <p>Create</p>
             <Image
               src="/images/bw-circle-right-arrow.png"
