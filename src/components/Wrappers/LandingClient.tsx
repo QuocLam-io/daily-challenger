@@ -17,9 +17,9 @@ export default function LandingClient() {
   return (
     <LoadingWrapper
       loadFn={loadPublicChallenge}
-      fallback={<div>Loading...</div>}
+      fallback={<CarraigeLoader />}
     >
-      {hasPublicChallenge ? <CarraigeLoader /> : <EmptyLanding />}
+      {hasPublicChallenge ? <h1>Blub</h1> : <EmptyLanding />}
       {/* <EmptyLanding /> */}
     </LoadingWrapper>
   );
