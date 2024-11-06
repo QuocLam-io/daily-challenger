@@ -6,8 +6,8 @@ const CarraigeLoader: React.FC = () => {
   return (
     <div className="carraige-loader-wrapper">
       <Image
-        src="/images/carousel.png"
-        alt="carousel"
+        src="/images/carraige.gif"
+        alt="carraige"
         width={256.5}
         height={132.354}
       />
@@ -37,3 +37,4 @@ const CarraigeLoader: React.FC = () => {
 };
 
 export default CarraigeLoader;
+

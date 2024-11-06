@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 //Styling
 import "./EmptyLanding.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
