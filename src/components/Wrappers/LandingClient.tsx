@@ -8,7 +8,11 @@ import CarraigeLoader from "../loaders/CarraigeLoader";
 
 export interface PublicChallengeTypes {
   challenge: string;
-  expiresAt: Date;
+  expiresAt: {
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
 }
 
 export default function LandingClient() {
@@ -22,13 +26,22 @@ export default function LandingClient() {
         PublicChallengeTypes,
         "expiresAt"
       > & { expiresAt: string };
-      parsedData.expiresAt = new Date(parsedData.expiresAt);
-      setPublicChallenge(parsedData as PublicChallengeTypes);
+
+      const expiresAtDate = new Date(parsedData.expiresAt);
+      const hours = expiresAtDate.getHours();
+      const minutes = expiresAtDate.getMinutes();
+      const seconds = expiresAtDate.getSeconds();
+
+      setPublicChallenge({
+        ...parsedData,
+        expiresAt: { hours, minutes, seconds },
+      });
     } else {
       setPublicChallenge(null);
     }
-    // return Boolean(data);
   };
+
+  console.log("publicChallenge", publicChallenge);
 
   return (
     <LoadingWrapper loadFn={loadPublicChallenge} fallback={<CarraigeLoader />}>

@@ -31,8 +31,13 @@
     }
   }
   .public-filled-timer {
+    @include flex-column;
+    gap: 4px;
     margin-top: auto;
+    margin-bottom: 40px;
+    outline: $border;
   }
   .public-filled-footer {
+    border: $border;
   }
 }

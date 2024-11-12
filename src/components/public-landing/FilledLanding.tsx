@@ -27,7 +27,10 @@ const EmptyLanding: React.FC<FilledLandingProps> = ({ publicChallenge }) => {
           <p>{publicChallenge.challenge}</p>
         </div>
       </div>
-      <div className="public-filled-timer">I am a timer</div>
+      <div className="public-filled-timer">
+        <p>Challenge ends in:</p>
+        <p>{publicChallenge.challenge}</p>
+      </div>
       <div className="public-filled-footer">I have a butt</div>
     </div>
   );
