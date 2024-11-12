@@ -6,7 +6,7 @@ import FilledLanding from "@/components/public-landing/FilledLanding";
 import LoadingWrapper from "@/components/wrappers/LoadingWrapper";
 import CarraigeLoader from "../loaders/CarraigeLoader";
 
-interface PublicChallengeTypes {
+export interface PublicChallengeTypes {
   challenge: string;
   expiresAt: Date;
 }
@@ -32,7 +32,11 @@ export default function LandingClient() {
 
   return (
     <LoadingWrapper loadFn={loadPublicChallenge} fallback={<CarraigeLoader />}>
-      {publicChallenge ? <FilledLanding /> : <EmptyLanding />}
+      {publicChallenge ? (
+        <FilledLanding publicChallenge={publicChallenge} />
+      ) : (
+        <EmptyLanding />
+      )}
       {/* <CarraigeLoader /> */}
       {/* <EmptyLanding /> */}
     </LoadingWrapper>

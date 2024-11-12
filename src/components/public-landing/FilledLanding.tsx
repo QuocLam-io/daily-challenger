@@ -6,11 +6,31 @@ import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
+import { PublicChallengeTypes } from "@/path/to/LandingClient";
 
-const EmptyLanding: React.FC = () => {
-  return <div className="public-filled-container">
+interface FilledLandingProps {
+  publicChallenge: PublicChallengeTypes;
+}
 
-  </div>;
+const EmptyLanding: React.FC<FilledLandingProps> = ({ publicChallenge }) => {
+  return (
+    <div className="public-filled-container">
+      <div className="public-filled-hero">
+        <Image
+          src="/images/bw-lamp.png"
+          alt="old timey lamp"
+          width={80}
+          height={80}
+        />
+        <div className="public-filled-hero-text">
+          <h2>I challenge myself to...</h2>
+          <p>{publicChallenge.challenge}</p>
+        </div>
+      </div>
+      <div className="public-filled-timer">I am a timer</div>
+      <div className="public-filled-footer">I have a butt</div>
+    </div>
+  );
 };
 
 export default EmptyLanding;
