@@ -10,9 +10,19 @@ import { PublicChallengeTypes } from "@/path/to/LandingClient";
 
 interface FilledLandingProps {
   publicChallenge: PublicChallengeTypes;
+  timeLeft?: {
+    hours: number;
+    minutes: number;
+    seconds: number;
+  };
 }
 
-const EmptyLanding: React.FC<FilledLandingProps> = ({ publicChallenge }) => {
+const EmptyLanding: React.FC<FilledLandingProps> = ({
+  publicChallenge,
+  timeLeft,
+}) => {
+  const temporaryTimeLeftDisplay = `${publicChallenge.expiresAt.hours}:${publicChallenge.expiresAt.minutes}:${publicChallenge.expiresAt.seconds}`;
+
   return (
     <div className="public-filled-container">
       <div className="public-filled-hero">
@@ -29,9 +39,28 @@ const EmptyLanding: React.FC<FilledLandingProps> = ({ publicChallenge }) => {
       </div>
       <div className="public-filled-timer">
         <p>Challenge ends in:</p>
-        <p>{publicChallenge.challenge}</p>
+        {/* TODO: Add expired logic in LandingClient component after design handoff */}
+        <p>{temporaryTimeLeftDisplay}</p>
       </div>
-      <div className="public-filled-footer">I have a butt</div>
+      <div className="public-filled-footer">
+        <button>
+          <Image
+            src="/images/bw-circle-checkmark.png"
+            alt="Check mark icon"
+            width={24}
+            height={24}
+          />
+          <p>Mark as done</p>
+        </button>
+        <button>
+          <Image
+            src="/images/vertical-ellipsis.png"
+            alt="Vertical ellipsis icon"
+            width={24}
+            height={24}
+          />
+        </button>
+      </div>
     </div>
   );
 };

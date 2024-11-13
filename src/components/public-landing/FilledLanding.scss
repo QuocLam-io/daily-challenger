@@ -9,7 +9,7 @@
   .public-filled-hero {
     @include flex-column;
     gap: 24px;
-    outline: $border;
+    // outline: $border;
 
     &-text {
       @include flex-column;
@@ -33,11 +33,63 @@
   .public-filled-timer {
     @include flex-column;
     gap: 4px;
+    padding: 20px 16px 16px 16px;
     margin-top: auto;
     margin-bottom: 40px;
-    outline: $border;
+    border-radius: 8px;
+    background: #f1f5f9;
+    // outline: $border;
+
+    p {
+      color: rgba(26, 26, 26, 0.6);
+      font-family: var(--font-work-sans), sans-serif;
+      line-height: 24px;
+      letter-spacing: 0.16px;
+    }
+
+    p + p {
+      color: rgba(26, 26, 26, 0.8);
+      font-family: var(--font-ultra), sans-serif;
+      font-size: 40px;
+      line-height: 56px;
+      letter-spacing: 2px;
+    }
   }
   .public-filled-footer {
-    border: $border;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin: 12px 0 24px;
+    // border: $border;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: #1a1a1a;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+
+      p {
+        color: var(--color-50, #fafafa);
+        font-feature-settings: "liga" off, "clig" off;
+        font-family: "Work Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px; /* 150% */
+        letter-spacing: 0.16px;
+      }
+    }
+
+    button + button {
+      width: auto;
+      padding: 16px;
+      background: transparent;
+      box-shadow: none;
+    }
   }
 }
