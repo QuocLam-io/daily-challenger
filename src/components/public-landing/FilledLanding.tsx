@@ -62,7 +62,7 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
           aria-expanded={challengeActionMenuToggle}
         >
           <button
-            // TODO: when toggled, background color changes
+            className={challengeActionMenuToggle ? "bg-active-grey" : ""}
             onClick={() =>
               setChallengeActionMenuToggle(!challengeActionMenuToggle)
             }
