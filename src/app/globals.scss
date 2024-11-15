@@ -14,6 +14,10 @@
   // font: inherit;
 }
 
+:root {
+  interpolate-size: allow-keywords;
+}
+
 html {
   hanging-punctuation: first last;
   color-scheme: dark light;

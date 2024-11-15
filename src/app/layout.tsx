@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Ultra, Work_Sans, Asap } from "next/font/google";
+import { Ultra, Work_Sans, Asap, Inter } from "next/font/google";
 import "./globals.scss";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/navbar/Navbar";
@@ -20,16 +20,24 @@ const workSansFont = Work_Sans({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Daily Challenger",
-  description: "Social media accountability app",
-};
-
 const asapFont = Asap({
   weight: "400", // You can adjust this based on the weight you need
   variable: "--font-asap",
   subsets: ["latin"],
 });
+
+const interFont = Inter({
+  weight: "500",
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Daily Challenger",
+  description: "Social media accountability app",
+};
+
+
 
 export default function RootLayout({
   children,
@@ -44,6 +52,7 @@ export default function RootLayout({
           ${ultraFont.variable}
           ${workSansFont.variable}
           ${asapFont.variable}
+          ${interFont.variable}
           antialiased`}
         >
           <main className="layout-container">
