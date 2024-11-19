@@ -29,7 +29,14 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
   };
 
   // console.log(publicChallenge.expiresAt, "publicChallenge");
-  const temporaryTimeLeftDisplay = `${publicChallenge.expiresAt.hours}:${publicChallenge.expiresAt.minutes}:${publicChallenge.expiresAt.seconds}`;
+  const temporaryTimeLeftDisplay =
+    publicChallenge.expiresAt && !publicChallenge.expired
+      ? `${publicChallenge.expiresAt.hours}:${String(
+          publicChallenge.expiresAt.minutes
+        ).padStart(2, "0")}:${String(
+          publicChallenge.expiresAt.seconds
+        ).padStart(2, "0")}`
+      : "Expired";
 
   return (
     <div className="public-filled-container">
