@@ -10,21 +10,25 @@ import { PublicChallengeTypes } from "@/path/to/LandingClient";
 
 interface FilledLandingProps {
   publicChallenge: PublicChallengeTypes;
-  timeLeft?: {
-    hours: number;
-    minutes: number;
-    seconds: number;
-  };
+  setPublicChallenge: React.Dispatch<
+    React.SetStateAction<PublicChallengeTypes | null>
+  >;
 }
 
 const FilledLanding: React.FC<FilledLandingProps> = ({
   publicChallenge,
-  timeLeft,
+  setPublicChallenge,
 }) => {
   const [challengeActionMenuToggle, setChallengeActionMenuToggle] =
     useState(false);
-  console.log(challengeActionMenuToggle, "challengeActionMenuToggle");
+  // console.log(challengeActionMenuToggle, "challengeActionMenuToggle");
 
+  const deletePublicChallenge = () => {
+    localStorage.removeItem("publicChallenge");
+    setPublicChallenge(null);
+  };
+
+  // console.log(publicChallenge.expiresAt, "publicChallenge");
   const temporaryTimeLeftDisplay = `${publicChallenge.expiresAt.hours}:${publicChallenge.expiresAt.minutes}:${publicChallenge.expiresAt.seconds}`;
 
   return (
@@ -89,7 +93,7 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
                 />
                 <p>Edit</p>
               </li>
-              <li role="menuitem">
+              <li onClick={deletePublicChallenge} role="menuitem">
                 <Image
                   src="/images/grey-trashcan.png"
                   alt="Trashcan icon"

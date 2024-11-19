@@ -114,8 +114,7 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
   const setPublicChallengeHandler = (e) => {
     e.preventDefault();
     if (challenge) {
-      const expirationTime = new Date();
-      expirationTime.setHours(expirationTime.getHours() + 24);
+      const expirationTime = Date.now() + 24 * 60 * 60 * 1000;
 
       localStorage.setItem(
         "publicChallenge",
