@@ -13,6 +13,7 @@ export interface PublicChallengeTypes {
     minutes: number;
     seconds: number;
   };
+  expired: boolean;
 }
 
 export default function LandingClient() {
@@ -31,6 +32,8 @@ export default function LandingClient() {
       const now = Date.now();
       const timeLeft = parsedData.expiresAt - now;
   
+// TODO: refactor this for countdown timer and make scalable in a util folder
+
       if (timeLeft > 0) {
         const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
         const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
@@ -41,8 +44,11 @@ export default function LandingClient() {
           expiresAt: { hours, minutes, seconds },
         });
       } else {
-        // TODO: set expired logic here
-        setPublicChallenge(null);
+        setPublicChallenge({
+          ...parsedData,
+          expiresAt: null,
+          expired: true,
+        });
       }
     } else {
       setPublicChallenge(null);
@@ -53,6 +59,7 @@ export default function LandingClient() {
 
   return (
     <LoadingWrapper loadFn={loadPublicChallenge} fallback={<CarraigeLoader />}>
+      {/* TODO: Add publicExpired component and logic */}
       {publicChallenge ? (
         <FilledLanding
           setPublicChallenge={setPublicChallenge}
