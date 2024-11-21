@@ -170,7 +170,7 @@
 
   @media (min-width: $portrait) {
     align-items: center;
-    padding: 152px 48px 64px;
+    padding: 154px 48px 64px;
     gap: 48px;
     // border: $border;
 
@@ -202,17 +202,10 @@
       margin-top: 0;
       margin-bottom: 0;
       // outline: $border;
-
-      p {
-      }
-
-      p + p {
-      }
     }
 
     .public-filled-footer {
       flex-direction: column;
-      justify-content: space-between;
       margin: auto 0 0;
       width: 426px;
       // border: $border;
