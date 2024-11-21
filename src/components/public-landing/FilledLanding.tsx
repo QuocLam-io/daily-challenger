@@ -112,6 +112,26 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
             </ul>
           </div>
         </div>
+        <div className="public-challenge-action-btns">
+          <button>
+            <Image
+              src="/images/grey-pencil.png"
+              alt="Pencil icon"
+              width={16}
+              height={16}
+            />
+            <p>Edit</p>
+          </button>
+          <button onClick={deletePublicChallenge}>
+            <Image
+              src="/images/grey-trashcan.png"
+              alt="Trashcan icon"
+              width={16}
+              height={16}
+            />
+            <p>Delete</p>
+          </button>
+        </div>
       </div>
     </div>
   );

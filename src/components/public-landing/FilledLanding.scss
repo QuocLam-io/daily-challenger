@@ -94,6 +94,12 @@
         background: transparent;
         box-shadow: none;
         transition: background 0.4s ease;
+        // border: $border;
+
+        img {
+          min-width: 24px;
+          height: 24px;
+        }
       }
 
       .bg-active-grey {
@@ -119,7 +125,7 @@
         height: 0;
         overflow: clip;
         visibility: hidden;
-        transition: height .5s ease, visibility 2s;
+        transition: height 0.5s ease, visibility 2s;
         // border: $border;
 
         ul {
@@ -152,6 +158,98 @@
             &:hover {
               background: rgba(26, 26, 26, 0.08);
             }
+          }
+        }
+      }
+    }
+
+    .public-challenge-action-btns {
+      display: none;
+    }
+  }
+
+  @media (min-width: $portrait) {
+    align-items: center;
+    padding: 152px 48px 64px;
+    gap: 48px;
+    // border: $border;
+
+    .public-filled-hero {
+      align-items: center;
+      gap: 40px;
+      // outline: $border;
+
+      &-text {
+        align-items: center;
+        gap: 16px;
+        // outline: $border;
+
+        h2 {
+          font-size: 24px;
+          line-height: 32px;
+          letter-spacing: 0.24px;
+        }
+
+        p {
+          font-size: 64px;
+          line-height: 80px;
+        }
+      }
+    }
+    .public-filled-timer {
+      width: 378px;
+      align-items: center;
+      margin-top: 0;
+      margin-bottom: 0;
+      // outline: $border;
+
+      p {
+      }
+
+      p + p {
+      }
+    }
+
+    .public-filled-footer {
+      flex-direction: column;
+      justify-content: space-between;
+      margin: auto 0 0;
+      width: 426px;
+      // border: $border;
+
+      button {
+        padding: 20px 24px;
+
+        p {
+          font-size: 18px;
+          letter-spacing: 0.18px;
+        }
+      }
+
+      .public-challenge-action-menu-wrapper {
+        display: none;
+      }
+
+      .public-challenge-action-btns {
+        display: flex;
+        gap: 12px;
+
+        button {
+          background: transparent;
+          box-shadow: none;
+          transition: box-shadow 0.3s ease;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          p {
+            color: rgba(26, 26, 26, 0.8);
+          }
+
+          &:hover {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15); /* Shadow on hover */
           }
         }
       }
