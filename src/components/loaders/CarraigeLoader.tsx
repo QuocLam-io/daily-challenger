@@ -17,7 +17,7 @@ const CarraigeLoader: React.FC = () => {
           Clip, clop, clip, clop...
         </div>
         <div className="carraige-text-wrapper-item">
-          By Jove! Hold your horses
+          By Jove, hold your horses!
         </div>
         <div className="carraige-text-wrapper-item">
           Patience, good fellow. Patience.
@@ -26,7 +26,7 @@ const CarraigeLoader: React.FC = () => {
           Clip, clop, clip, clop...
         </div>
         <div className="carraige-text-wrapper-item">
-          By Jove! Hold your horses
+          By Jove, hold your horses!
         </div>
         <div className="carraige-text-wrapper-item">
           Patience, good fellow. Patience.
