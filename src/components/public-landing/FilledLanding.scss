@@ -170,7 +170,7 @@
 
   @media (min-width: $portrait) {
     align-items: center;
-    padding: 154px 48px 64px;
+    padding: 112px 48px 64px;
     gap: 48px;
     // border: $border;
 
@@ -191,6 +191,7 @@
         }
 
         p {
+          text-align: center;
           font-size: 64px;
           line-height: 80px;
         }
