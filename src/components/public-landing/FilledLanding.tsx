@@ -7,6 +7,7 @@ import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
 import { PublicChallengeTypes } from "@/path/to/LandingClient";
+import Link from "next/link";
 
 interface FilledLandingProps {
   publicChallenge: PublicChallengeTypes;
@@ -22,6 +23,8 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
   const [challengeActionMenuToggle, setChallengeActionMenuToggle] =
     useState(false);
   // console.log(challengeActionMenuToggle, "challengeActionMenuToggle");
+  const [deletePCModalOpen, setDeletePCModalOpen] = useState(false);
+  const [editPCModalOpen, setEditPCModalOpen] = useState(false);
 
   const deletePublicChallenge = () => {
     localStorage.removeItem("publicChallenge");
@@ -100,7 +103,12 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
                 />
                 <p>Edit</p>
               </li>
-              <li onClick={deletePublicChallenge} role="menuitem">
+              <li
+                onClick={() => {
+                  setDeletePCModalOpen(true);
+                }}
+                role="menuitem"
+              >
                 <Image
                   src="/images/grey-trashcan.png"
                   alt="Trashcan icon"
@@ -122,7 +130,11 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
             />
             <p>Edit</p>
           </button>
-          <button onClick={deletePublicChallenge}>
+          <button
+            onClick={() => {
+              setDeletePCModalOpen(true);
+            }}
+          >
             <Image
               src="/images/grey-trashcan.png"
               alt="Trashcan icon"
@@ -133,8 +145,65 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
           </button>
         </div>
       </div>
+      <AnimatePresence>
+        {editPCModalOpen && (
+          <Overlay
+          // onClose={publicChallengerModalClose}
+          // customClassName={`flex-align-start portrait-align-center`}
+          >
+            Blub
+          </Overlay>
+        )}
+        {deletePCModalOpen && (
+          <Overlay>
+            <DeletePublicChallengerModal
+              onClose={() => setDeletePCModalOpen(false)}
+              deletePublicChallenge={deletePublicChallenge}
+            />
+          </Overlay>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default FilledLanding;
+
+/* --------------------- Delete Public Challenger Modal --------------------- */
+
+interface DeletePublicChallengerModalProps {
+  onClose: () => void;
+  deletePublicChallenge: () => void;
+}
+
+const DeletePublicChallengerModal: React.FC<
+  DeletePublicChallengerModalProps
+> = ({ onClose, deletePublicChallenge }) => {
+  return (
+    <div className="delete-pc-modal">
+      <h1>Delete this challenge?</h1>
+      <div className="delete-pc-modal-body">
+        <p>
+          Deleting this challenge will allow you to create a new challenge. As a
+          guest user you can only have <span>1 active challenge</span> at a
+          time.
+        </p>
+        <br />
+        <p>
+          To create multiple challenges, please{" "}
+          <Link
+            // TODO: switch out after pro features are implemented
+            href={`/under-construction`}
+          >
+            sign in or create an account
+          </Link>
+        </p>
+      </div>
+      <div className="delete-pc-modal-footer">
+        {/* TODO: make design system for this type of footer with 2 btns */}
+        <button onClick={onClose}>Cancel</button>
+        <button onClick={deletePublicChallenge}>Yes, Delete</button>
+      </div>
+    </div>
+  );
+};

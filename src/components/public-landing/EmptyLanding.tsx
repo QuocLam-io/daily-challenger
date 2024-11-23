@@ -120,7 +120,6 @@ const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
         "publicChallenge",
         JSON.stringify({ challenge, expiresAt: expirationTime, expired: false })
       );
-      alert("Challenge saved!");
 
       onClose();
       window.location.reload();
