@@ -315,4 +315,8 @@
       border-radius: 8px;
     }
   }
+
+  @media(min-width: $portrait) {
+    max-width: 532px;
+  }
 }
