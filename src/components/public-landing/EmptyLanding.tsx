@@ -75,7 +75,7 @@ interface ExampleCardProps {
   dead: string;
 }
 
-const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
+export const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
   return (
     <div className="example-card">
       <div className="example-card-icon"></div>
@@ -95,13 +95,14 @@ const ExampleCard: React.FC<ExampleCardProps> = ({ title, dead }) => {
   );
 };
 
+
 /* ------------------------- Public Challenger Form ------------------------- */
 
 interface PublicChallengerFormProps {
   onClose: () => void;
 }
 
-const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
+export const PublicChallengerForm: React.FC<PublicChallengerFormProps> = ({
   onClose,
 }) => {
   const [challenge, setChallenge] = useState("");

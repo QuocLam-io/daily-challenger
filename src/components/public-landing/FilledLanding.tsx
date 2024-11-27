@@ -7,6 +7,8 @@ import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
 import { PublicChallengeTypes } from "@/path/to/LandingClient";
+import { ExampleCard } from "@/components/public-landing/EmptyLanding";
+import { PublicChallengerForm } from "@/components/public-landing/EmptyLanding";
 import Link from "next/link";
 
 interface FilledLandingProps {
@@ -94,7 +96,12 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
             aria-label="Action menu"
           >
             <ul>
-              <li role="menuitem">
+              <li
+                onClick={() => {
+                  setEditPCModalOpen(true);
+                }}
+                role="menuitem"
+              >
                 <Image
                   src="/images/grey-pencil.png"
                   alt="Pencil icon"
@@ -121,7 +128,11 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
           </div>
         </div>
         <div className="public-challenge-action-btns">
-          <button>
+          <button
+            onClick={() => {
+              setEditPCModalOpen(true);
+            }}
+          >
             <Image
               src="/images/grey-pencil.png"
               alt="Pencil icon"
@@ -147,11 +158,17 @@ const FilledLanding: React.FC<FilledLandingProps> = ({
       </div>
       <AnimatePresence>
         {editPCModalOpen && (
-          <Overlay
-          // onClose={publicChallengerModalClose}
-          // customClassName={`flex-align-start portrait-align-center`}
-          >
-            Blub
+          <Overlay customClassName={`flex-align-start portrait-align-center`}>
+            {/* <EditPublicChallengerModal
+              onClose={() => {
+                setEditPCModalOpen(false);
+              }}
+            /> */}
+            <PublicChallengerForm
+              onClose={() => {
+                setEditPCModalOpen(false);
+              }}
+            />
           </Overlay>
         )}
         {deletePCModalOpen && (
