@@ -32,8 +32,8 @@ export default function LandingClient() {
       const now = Date.now();
       const timeLeft = parsedData.expiresAt - now;
   
-// TODO: refactor this for countdown timer and make scalable in a util folder
       if (timeLeft > 0) {
+        // TODO: refactor this for countdown timer and make scalable in a util folder
         const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
         const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
         const seconds = Math.floor((timeLeft / 1000) % 60);

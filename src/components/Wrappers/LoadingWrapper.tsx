@@ -5,6 +5,7 @@ interface LoaderWrapperProps {
   fallback: React.ReactNode;
   children: React.ReactNode;
 }
+/* -------------------------------------------------------------------------- */
 
 const LoaderWrapper: React.FC<LoaderWrapperProps> = ({
   loadFn,
@@ -15,6 +16,7 @@ const LoaderWrapper: React.FC<LoaderWrapperProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    console.log("LoaderWrapper useEffect");
     loadFn().then(() => {
       setIsLoaded(true);
       setLoading(false);
