@@ -1,8 +1,8 @@
 import React from "react";
 // import ChallengerClient from "@/components/wrappers/ChallengerClient.tsx";
-import ActiveChallenges from "@/components/ActiveChallenges";
-import ChallengeWrapper from "@/components/wrappers/ChallengesWrapper";
-import ChallengerClient from "../../components/wrappers/ChallengerClient.tsx";
+import ActiveChallenges from "@/Components/ActiveChallenges.jsx";
+import ChallengeWrapper from "@/Components/Wrappers/ChallengesWrapper.jsx";
+import ChallengerClient from "../../Components/Wrappers/ChallengerClient.jsx";
 // import ActiveChallenges from "../../components/ActiveChallenges";
 // import ChallengeWrapper from "../../components/wrappers/ChallengesWrapper";
 

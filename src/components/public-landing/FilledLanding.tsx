@@ -7,7 +7,7 @@ import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
 import { PublicChallengeTypes } from "@/path/to/LandingClient";
-import { PublicChallengerForm } from "@/components/public-landing/EmptyLanding";
+import { PublicChallengerForm } from "@/Components/public-landing/EmptyLanding";
 import Link from "next/link";
 
 interface FilledLandingProps {

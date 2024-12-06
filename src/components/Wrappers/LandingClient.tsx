@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import EmptyLanding from "@/components/public-landing/EmptyLanding";
-import FilledLanding from "@/components/public-landing/FilledLanding";
-import LoadingWrapper from "@/components/wrappers/LoadingWrapper";
+import EmptyLanding from "@/Components/public-landing/EmptyLanding";
+import FilledLanding from "@/Components/public-landing/FilledLanding";
+import LoadingWrapper from "@/Components/Wrappers/LoadingWrapper";
 import CarraigeLoader from "../loaders/CarraigeLoader";
 
 export interface PublicChallengeTypes {

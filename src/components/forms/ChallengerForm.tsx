@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { ContactsModal } from "@/components/modals/ContactsModal";
+import { ContactsModal } from "@/Components/modals/ContactsModal";
 import addChallenge from "@/app/actions/addChallenge";
 import { toast } from "react-toastify";
 

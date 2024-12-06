@@ -5,7 +5,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+} from "@/Components/ui/dialog";
 
 export function ContactsModal({ contactsModalOpen, setContactsModalOpen }) {
   return (
