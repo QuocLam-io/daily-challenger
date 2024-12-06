@@ -1,8 +1,17 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./UnderConstruction.scss";
 
 const UnderConstruction = () => {
+  const router = useRouter();
+
+  const handleBackToHome = () => {
+    router.push("/"); // Navigates to the home page
+  };
+
   return (
     <div className="under-construction">
       <div className="under-construction-text">
@@ -16,11 +25,8 @@ const UnderConstruction = () => {
         width={342.048}
         height={301.056}
       />
-      <div
-        className="under-construction-footer
-      "
-      >
-        <button>
+      <div className="under-construction-footer">
+        <button onClick={handleBackToHome}>
           <Image
             src="/images/bw-circle-left-arrow.png"
             alt="Left arrow"
