@@ -22,22 +22,22 @@ export default function LandingClient() {
 
   const loadPublicChallenge = async () => {
     const data = localStorage.getItem("publicChallenge");
-  
+
     if (data) {
       const parsedData = JSON.parse(data) as Omit<
         PublicChallengeTypes,
         "expiresAt"
       > & { expiresAt: number };
-  
+
       const now = Date.now();
       const timeLeft = parsedData.expiresAt - now;
-  
+
       if (timeLeft > 0) {
         // TODO: refactor this for countdown timer and make scalable in a util folder
         const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
         const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
         const seconds = Math.floor((timeLeft / 1000) % 60);
-  
+
         setPublicChallenge({
           ...parsedData,
           expiresAt: { hours, minutes, seconds },

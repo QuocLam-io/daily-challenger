@@ -7,7 +7,6 @@ import Image from "next/image";
 //Components
 import Overlay from "../modals/Overlay";
 import { PublicChallengeTypes } from "@/path/to/LandingClient";
-import { ExampleCard } from "@/components/public-landing/EmptyLanding";
 import { PublicChallengerForm } from "@/components/public-landing/EmptyLanding";
 import Link from "next/link";
 
