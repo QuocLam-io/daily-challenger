@@ -1,10 +1,10 @@
 import React from "react";
-// // import ChallengerClient from "@/components/wrappers/ChallengerClient.tsx";
-// import ActiveChallenges from "@/components/ActiveChallenges";
-// import ChallengeWrapper from "@/components/wrappers/ChallengesWrapper";
-// import ChallengerClient from "../../components/wrappers/ChallengerClient.tsx";
-// // import ActiveChallenges from "../../components/ActiveChallenges";
-// // import ChallengeWrapper from "../../components/wrappers/ChallengesWrapper";
+// import ChallengerClient from "@/components/wrappers/ChallengerClient.tsx";
+import ActiveChallenges from "@/components/ActiveChallenges";
+import ChallengeWrapper from "@/components/wrappers/ChallengesWrapper";
+import ChallengerClient from "../../components/wrappers/ChallengerClient.tsx";
+// import ActiveChallenges from "../../components/ActiveChallenges";
+// import ChallengeWrapper from "../../components/wrappers/ChallengesWrapper";
 
 const Home = () => {
   return (
