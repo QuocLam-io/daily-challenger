@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ActiveChallenges.scss";
 import useChallengeStore from "@/store/challengesStore";
 import deleteChallenge from "@/app/actions/deleteChallenge";
@@ -14,7 +14,7 @@ interface ActiveChallenges {
 
 const ActiveChallenges = () => {
   const challenges = useChallengeStore((state) => state.challenges);
-  const setChallenges = useChallengeStore((state) => state.setChallenges);
+  // const setChallenges = useChallengeStore((state) => state.setChallenges);
 
   //! DELETE Active Challenges
   const deleteChallengeHandler = async (challengeId: string) => {

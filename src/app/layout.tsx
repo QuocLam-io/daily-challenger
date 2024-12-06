@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import { Ultra, Work_Sans, Asap, Inter } from "next/font/google";
 import "./globals.scss";
 import { ClerkProvider } from "@clerk/nextjs";

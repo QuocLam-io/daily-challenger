@@ -25,7 +25,7 @@ async function deleteChallenge(challengeId: string): Promise<{
 
     return { message: "Challenge deleted" };
   } catch (error) {
-    return { error: "Database error" };
+    return { error: error };
   }
 }
 

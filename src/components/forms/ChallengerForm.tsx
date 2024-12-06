@@ -1,11 +1,11 @@
 import { useState, ChangeEvent } from "react";
 import "./ChallengerForm.scss";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import { useForm } from "react-hook-form";
+// import { z } from "zod";
 
-import { ContactsModal } from "@/Components/modals/ContactsModal";
+// import { ContactsModal } from "@/Components/modals/ContactsModal";
 import addChallenge from "@/app/actions/addChallenge";
 import { toast } from "react-toastify";
 
@@ -44,10 +44,10 @@ interface ChallengerFormProps {
 
 //! ------------------------ Submit Challenge Handler ------------------------ */
 
-const submitChallengeHandler = (userInfo: FormData) => {
-  //TODO: Send to backend
-  console.log(userInfo, "Submitted");
-};
+// const submitChallengeHandler = (userInfo: FormData) => {
+//   //TODO: Send to backend
+//   console.log(userInfo, "Submitted");
+// };
 
 //clg
 
@@ -60,6 +60,8 @@ export function ChallengerForm({
   const [quantity, setQuantity] = useState<number | undefined>(0);
   const [description, setDescription] = useState<string>("");
   const [deadline, setDeadline] = useState<string>("");
+
+  console.log(contactsModalOpen, setContactsModalOpen, type, setType, quantity, setQuantity, description, setDescription, deadline, setDeadline);
 
   // const form = useForm({
   //   resolver: zodResolver(formSchema),

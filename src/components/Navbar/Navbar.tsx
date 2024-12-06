@@ -1,11 +1,11 @@
 import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { checkUser } from "@/lib/checkUser";
+// import { checkUser } from "@/lib/checkUser";
 import "./Navbar.scss";
 import Logo from "../logo/Logo";
 
 const Navbar = async () => {
-  const user = await checkUser();
+  // const user = await checkUser();
 
   return (
     <nav className="navbar">
